@@ -103,24 +103,138 @@
                 name ASC
             ");
 
-while ($t = $stmt->fetch()) {
-    $img = !empty($t['image']) ? '../public/uploads/' . $t['image'] : '../assets/images/default-teacher.png';
-    echo '<div class="teacher-card-full">';
-    echo "<img src='$img' alt='Teacher'>";
-    echo '<div class="info">';
-    echo '<h3>' . htmlspecialchars($t['name']) . '</h3>';
-    echo '<p><strong>Designation:</strong> ' . htmlspecialchars($t['designation']) . '</p>';
-    echo '<p><strong>Department:</strong> ' . htmlspecialchars($t['department']) . '</p>';
-    echo '<p><strong>Shift:</strong> ' . htmlspecialchars($t['shift']) . '</p>';
-    echo '<p><strong>Qualification:</strong> ' . htmlspecialchars($t['qualification']) . '</p>';
-    echo '<p><strong>Phone:</strong> ' . htmlspecialchars($t['phone']) . '</p>';
-    echo '<p><strong>Email:</strong> ' . htmlspecialchars($t['email']) . '</p>';
-    echo '</div></div>';
-}
-?>
+                    while ($t = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $img = !empty($t['image']) ? '../public/uploads/' . htmlspecialchars($t['image']) : '../assets/images/default-teacher.png';
+                    ?>
+                        <div class="teacher-card text-center bg-gray-50 rounded-xl shadow-md overflow-hidden"
+                            onclick='openTeacherModal(<?php echo htmlspecialchars(json_encode($t), ENT_QUOTES, 'UTF-8'); ?>)'>
+                            <div class="bg-gradient-to-b from-blue-100 to-gray-50 pt-8 pb-4">
+                                <img src="<?php echo $img; ?>" alt="Photo of <?php echo htmlspecialchars($t['name']); ?>" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-lg object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="font-bold text-xl text-gray-800 mb-1"><?php echo htmlspecialchars($t['name']); ?></h3>
+                                <p class="text-blue-600 font-semibold text-sm"><?php echo htmlspecialchars($t['designation']); ?></p>
+                                <p class="text-sm text-gray-500 mt-2"><?php echo htmlspecialchars($t['department']); ?></p>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
 
-</section>
+            <!-- Start of new sections -->
+            <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 mt-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+                    <i class="fas fa-microchip mr-3 section-icon"></i>Our Key Departments
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="p-6 bg-gray-50 rounded-xl shadow-md text-center">
+                        <div class="text-4xl text-blue-500 mb-4"><i class="fas fa-building"></i></div>
+                        <h3 class="font-bold text-lg mb-2">Civil Technology</h3>
+                        <p class="text-sm text-gray-600">
+                            Building the world of tomorrow with practical skills in construction, infrastructure, and structural design.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl shadow-md text-center">
+                        <div class="text-4xl text-blue-500 mb-4"><i class="fas fa-bolt"></i></div>
+                        <h3 class="font-bold text-lg mb-2">Electrical Technology</h3>
+                        <p class="text-sm text-gray-600">
+                            Igniting careers in power generation, electronics, and control systems with hands-on training.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl shadow-md text-center">
+                        <div class="text-4xl text-blue-500 mb-4"><i class="fas fa-cogs"></i></div>
+                        <h3 class="font-bold text-lg mb-2">Mechanical Technology</h3>
+                        <p class="text-sm text-gray-600">
+                            Innovating for the future by mastering the principles of machinery, design, and manufacturing.
+                        </p>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl shadow-md text-center">
+                        <div class="text-4xl text-blue-500 mb-4"><i class="fas fa-laptop-code"></i></div>
+                        <h3 class="font-bold text-lg mb-2">Computer Science & Technology</h3>
+                        <p class="text-sm text-gray-600">
+                            Pioneering the future with cutting-edge programming, software development, and networking courses.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
+            <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 mt-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+                    <i class="fas fa-bullseye mr-3 section-icon"></i>Our Vision & Mission
+                </h2>
+                <div class="text-gray-700 max-w-4xl mx-auto">
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Vision</h3>
+                    <p class="mb-6">
+                        To be the leading polytechnic institute in Bangladesh, producing highly skilled, innovative, and ethically sound professionals who can meet the challenges of the modern industrial world and contribute to national development.
+                    </p>
+                    <h3 class="text-xl font-semibold text-blue-700 mb-2">Mission</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>To provide quality technical education and hands-on training that aligns with industry demands.</li>
+                        <li>To foster a learning environment that encourages creativity, critical thinking, and problem-solving skills.</li>
+                        <li>To ensure students are equipped with professional values, communication skills, and leadership qualities.</li>
+                        <li>To promote research and innovation for the betterment of society and the industrial sector.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End of new sections -->
+        </div>
+
+        <div class="modal fade" id="teacherModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content rounded-xl shadow-2xl">
+                    <div class="modal-header rounded-t-xl">
+                        <h5 class="modal-title text-xl font-bold">Teacher Profile</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-6">
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="flex flex-col items-center text-center md:col-span-1">
+                                <img id="teacherModalImage" src="" alt="Teacher Photo" class="w-40 h-40 rounded-full border-4 border-gray-200 shadow-lg object-cover">
+                                <h3 id="teacherModalName" class="text-2xl font-bold mt-4"></h3>
+                                <p id="teacherModalDesignation" class="text-blue-600 font-semibold"></p>
+                            </div>
+                            <div class="md:col-span-2">
+                                <h4 class="text-lg font-semibold border-b pb-2 mb-4">Details</h4>
+                                <div class="space-y-3 text-gray-700">
+                                    <p><strong>Department:</strong> <span id="teacherModalDepartment"></span></p>
+                                    <p><strong>Shift:</strong> <span id="teacherModalShift"></span></p>
+                                    <p><strong>Qualification:</strong> <span id="teacherModalQualification"></span></p>
+                                    <p><strong><i class="fas fa-phone-alt text-blue-500 mr-2"></i>Phone:</strong> <a id="teacherModalPhone" href="#" class="text-blue-600 hover:underline"></a></p>
+                                    <p><strong><i class="fas fa-envelope text-blue-500 mr-2"></i>Email:</strong> <a id="teacherModalEmail" href="#" class="text-blue-600 hover:underline"></a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function openTeacherModal(teacher) {
+                const defaultImg = '../assets/images/default-teacher.png';
+                const teacherImg = teacher.image ? `../public/uploads/${teacher.image}` : defaultImg;
+
+                document.getElementById('teacherModalImage').src = teacherImg;
+                document.getElementById('teacherModalName').textContent = teacher.name;
+                document.getElementById('teacherModalDesignation').textContent = teacher.designation;
+                document.getElementById('teacherModalDepartment').textContent = teacher.department;
+                document.getElementById('teacherModalShift').textContent = teacher.shift;
+                document.getElementById('teacherModalQualification').textContent = teacher.qualification;
+
+                const phoneLink = document.getElementById('teacherModalPhone');
+                phoneLink.textContent = teacher.phone;
+                phoneLink.href = `tel:${teacher.phone}`;
+
+                const emailLink = document.getElementById('teacherModalEmail');
+                emailLink.textContent = teacher.email;
+                emailLink.href = `mailto:${teacher.email}`;
+
+                const teacherModal = new bootstrap.Modal(document.getElementById('teacherModal'));
+                teacherModal.show();
+            }
+        </script>
+    </div>
 
     <?php include_once '../includes/footer.php'; ?>
 </body>
