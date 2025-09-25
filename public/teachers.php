@@ -18,7 +18,7 @@
         }
 
         .header-hero {
-            background: linear-gradient(rgba(20, 30, 48, 0.7), rgba(36, 59, 85, 0.7)), url('https://images.unsplash.com/photo-1580894732444-8ecded794837?q=80&w=2070&auto=format&fit=crop') no-repeat center center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/Hero.jpg") no-repeat center center;
             background-size: cover;
             /* height: 50vh; */
         }
