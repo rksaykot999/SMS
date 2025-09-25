@@ -4,21 +4,20 @@ session_start();
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    if (!empty($username) && !empty($password)) {
-        $stmt = $pdo->prepare("SELECT * FROM teachers WHERE username=? LIMIT 1");
-        $stmt->execute([$username]);
+    if (!empty($email) && !empty($password)) {
+        $stmt = $pdo->prepare("SELECT * FROM teachers WHERE email=? LIMIT 1");
+        $stmt->execute([$email]);
         $teacher = $stmt->fetch();
 
         if ($teacher && $password === $teacher['password']) { 
-            // এখানে চাইলে password_hash ব্যবহার করতে পারেন
             $_SESSION['teacher_id'] = $teacher['id'];
             header("Location: teacher-dashboard.php");
             exit();
         } else {
-            $error = "⚠ ভুল Username বা Password!";
+            $error = "⚠ ভুল Email বা Password!";
         }
     } else {
         $error = "⚠ সব ঘর পূরণ করুন!";
@@ -55,8 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <form method="post" action="" class="space-y-6">
         <div>
-            <label for="teacher-username" class="block text-gray-700 font-medium mb-2">Username</label>
-            <input type="text" id="teacher-username" name="username" placeholder="Enter Username"
+            <label for="teacher-email" class="block text-gray-700 font-medium mb-2">Email</label>
+            <input type="email" id="teacher-email" name="email" placeholder="Enter Email"
                 class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent" required>
         </div>
         <div>

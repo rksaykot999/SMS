@@ -38,19 +38,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($f['size'] > 2 * 1024 * 1024) $errors[] = "ছবির সাইজ 2MB এর বেশি হতে পারবে না।";
             $ext = strtolower(pathinfo($f['name'], PATHINFO_EXTENSION));
             if (!in_array($ext, ['jpg','jpeg','png','gif'])) $errors[] = "ছবির অনুমোদিত ফরম্যাট: jpg,jpeg,png,gif।";
+
             if (empty($errors)) {
                 $teacher_image_name = 'tch_' . time() . '_' . bin2hex(random_bytes(4)) . '.' . $ext;
-                $dest = __DIR__ . '/../uploads' . $teacher_image_name;
+
+                // Save path: public/uploads/teachers/
+                $upload_dir = __DIR__ . '/../uploads/teachers/';
+                if (!is_dir($upload_dir)) mkdir($upload_dir, 0777, true);
+
+                $dest = $upload_dir . $teacher_image_name;
                 if (!move_uploaded_file($f['tmp_name'], $dest)) $errors[] = "ছবি সার্ভারে সেভ করা যায়নি।";
             }
         }
     }
 
     if (empty($errors)) {
-        $pw_hash = password_hash($password, PASSWORD_DEFAULT);
+        // password hash বন্ধ
         $ins = $pdo->prepare("INSERT INTO pending_teachers (name, email, password, department, shift, phone, qualification, designation, image)
                               VALUES (?,?,?,?,?,?,?,?,?)");
-        $ins->execute([$name, $email, $pw_hash, $department, $shift, $phone, $qualification, $designation, $teacher_image_name]);
+        $ins->execute([$name, $email, $password, $department, $shift, $phone, $qualification, $designation, $teacher_image_name]);
         $success = "Registration জমা হয়েছে — Admin যাচাই করে Approve করবে।";
         $_POST = [];
     }
@@ -63,7 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>Teacher Registration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>.preview-img{max-width:120px;max-height:120px;object-fit:cover;border-radius:8px;}</style>
+  <style>
+    .preview-img{max-width:120px; max-height:120px; object-fit:cover; border-radius:8px;}
+  </style>
 </head>
 <body class="bg-light">
 <div class="container py-5">
@@ -90,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </div>
           <div class="col-md-6">
             <label class="form-label">Password *</label>
-            <input name="password" type="password" class="form-control" required>
+            <input name="password" type="text" class="form-control" value="<?=htmlspecialchars($_POST['password'] ?? '')?>" required>
           </div>
           <div class="col-md-6">
             <label class="form-label">Department</label>
@@ -112,11 +120,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label class="form-label">Designation</label>
             <input name="designation" class="form-control" value="<?=htmlspecialchars($_POST['designation'] ?? '')?>">
           </div>
-
           <div class="col-md-6">
             <label class="form-label">Photo (jpg/png) - max 2MB</label>
             <input type="file" name="image" accept="image/*" class="form-control" id="tchImage">
-            <div class="mt-2"><img id="tchPreview" class="preview-img" style="display:none"></div>
+            <div class="mt-2">
+              <img id="tchPreview" class="preview-img" style="display:none">
+            </div>
           </div>
 
           <div class="col-12 text-end">
@@ -125,19 +134,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </div>
         </div>
       </form>
-
     </div>
   </div>
 </div>
 
 <script>
-  document.getElementById('tchImage').addEventListener('change', function(e){
+document.getElementById('tchImage').addEventListener('change', function(e){
     const f = e.target.files[0];
     const img = document.getElementById('tchPreview');
     if (!f) { img.style.display='none'; return; }
-    img.src = URL.createObjectURL(f); img.style.display='inline-block';
-  });
+    img.src = URL.createObjectURL(f); 
+    img.style.display='inline-block';
+});
 </script>
 </body>
 </html>
-
