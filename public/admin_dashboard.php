@@ -52,8 +52,8 @@ $msg = $_GET['msg'] ?? '';
       </div>
       <nav class="mt-3">
         <a href="admin_dashboard.php">Dashboard</a>
-        <a href="students_view.php">Approved Students</a>
-        <a href="teachers_view.php">Approved Teachers</a>
+        <a href="students_view.php">All Students</a>
+        <a href="teachers_view.php">All Teachers</a>
         <a href="pending_list.php">Pending Requests</a>
         <a href="notice_list.php">Notices</a>
         <a href="admin-logout.php">Logout</a>

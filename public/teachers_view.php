@@ -23,7 +23,7 @@ $teachers = $stmt->fetchAll();
 <body>
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h3>Approved Teachers</h3>
+    <h3>All Teachers</h3>
     <div>
       <a href="admin_dashboard.php" class="btn btn-outline-secondary btn-sm">Dashboard</a>
       <a href="teacher_register.php" class="btn btn-primary btn-sm">Add New Teacher</a>
