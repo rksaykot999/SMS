@@ -32,7 +32,7 @@
     .header-hero {
       background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/Hero.jpg") no-repeat center center;
       background-size: cover;
-      height: 40vh;
+      height: 50vh;
     }
 
     .accordion-button:not(.collapsed) {
@@ -177,7 +177,7 @@
             class="rounded-2xl shadow-lg w-full">
         </div>
         <div>
-          <p class="text-gray-700 leading-relaxed mb-4">
+          <p class="text-gray-700 leading-relaxed mb-4 text-justify">
             The Diploma in Engineering program at Barisal Polytechnic Institute is a 4-year, 8-semester course designed
             to provide students with the foundational knowledge and practical skills required for a successful career in
             various engineering fields. The curriculum is developed by the Bangladesh Technical Education Board (BTEB)
@@ -206,49 +206,85 @@
     </section>
 
     <!-- Academic Departments Section -->
-    <section id="courses" class="bg-blue-50 p-8 md:p-12 rounded-3xl shadow-xl">
-      <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Our Diploma Programs</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105">
-          <i class="fas fa-laptop-code text-5xl text-blue-600 mb-4"></i>
-          <h3 class="text-xl font-semibold text-gray-800">Computer Science</h3>
-          <p class="text-gray-600 mt-2 text-sm">Focuses on software development, programming, networking, and hardware.
-            Students learn to design, develop, and maintain computer systems and software applications.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105">
-          <i class="fas fa-hard-hat text-5xl text-green-600 mb-4"></i>
-          <h3 class="text-xl font-semibold text-gray-800">Civil Engineering</h3>
-          <p class="text-gray-600 mt-2 text-sm">Covers the design, construction, and maintenance of physical and
-            naturally built environments, including roads, bridges, canals, dams, and buildings.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105">
-          <i class="fas fa-bolt text-5xl text-purple-600 mb-4"></i>
-          <h3 class="text-xl font-semibold text-gray-800">Electrical Technology</h3>
-          <p class="text-gray-600 mt-2 text-sm">Deals with the study and application of electricity, electronics, and
-            electromagnetism. The course prepares students for careers in power generation, distribution, and
-            electronics.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105">
-          <i class="fas fa-cogs text-5xl text-red-600 mb-4"></i>
-          <h3 class="text-xl font-semibold text-gray-800">Mechanical Technology</h3>
-          <p class="text-gray-600 mt-2 text-sm">This program focuses on the principles of mechanics, kinematics,
-            thermodynamics, and manufacturing. Graduates are prepared for roles in machine design, robotics, and
-            industrial automation.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105">
-          <i class="fas fa-robot text-5xl text-yellow-600 mb-4"></i>
-          <h3 class="text-xl font-semibold text-gray-800">Electromedical Technology</h3>
-          <p class="text-gray-600 mt-2 text-sm">Combines electrical and biomedical engineering to train students in the
-            operation and maintenance of medical equipment used in hospitals and clinics.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105">
-          <i class="fas fa-paint-roller text-5xl text-pink-600 mb-4"></i>
-          <h3 class="text-xl font-semibold text-gray-800">Architecture & Interior Design</h3>
-          <p class="text-gray-600 mt-2 text-sm">This program teaches the art and science of designing buildings and
-            interior spaces, focusing on aesthetics, functionality, and sustainability.</p>
-        </div>
-      </div>
-    </section>
+<section id="courses" class="bg-blue-50 p-8 md:p-12 rounded-3xl shadow-xl">
+  <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Our Diploma Programs</h2>
+  <div class="animate-stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+    <!-- Computer Science -->
+    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+      <i class="fas fa-code text-5xl text-blue-600 mb-4"></i>
+      <h3 class="text-xl font-semibold text-gray-800">Computer Science</h3>
+      <p class="text-gray-600 mt-2 text-sm">
+        Study programming, database management, artificial intelligence, software development, and cutting-edge web technologies to build the digital future.
+      </p>
+    </div>
+
+    <!-- Civil Engineering -->
+    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+      <i class="fas fa-drafting-compass text-5xl text-green-600 mb-4"></i>
+      <h3 class="text-xl font-semibold text-gray-800">Civil Technology</h3>
+      <p class="text-gray-600 mt-2 text-sm">
+        Learn structural design, surveying, bridge construction, urban planning, and sustainable infrastructure development for modern cities.
+      </p>
+    </div>
+
+    <!-- Electrical Technology -->
+    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+      <i class="fas fa-bolt text-5xl text-yellow-500 mb-4"></i>
+      <h3 class="text-xl font-semibold text-gray-800">Electrical Technology</h3>
+      <p class="text-gray-600 mt-2 text-sm">
+        Gain expertise in electrical circuits, power systems, electronics, renewable energy, and smart electrical grids for the future.
+      </p>
+    </div>
+
+    <!-- Mechanical Technology -->
+    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+      <i class="fas fa-industry text-5xl text-red-600 mb-4"></i>
+      <h3 class="text-xl font-semibold text-gray-800">Mechanical Technology</h3>
+      <p class="text-gray-600 mt-2 text-sm">
+        Explore thermodynamics, robotics, advanced manufacturing, automobile engineering, and machine design to shape modern industries.
+      </p>
+    </div>
+
+    <!-- Electronics Engineering -->
+    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+      <i class="fas fa-satellite-dish text-5xl text-indigo-600 mb-4"></i>
+      <h3 class="text-xl font-semibold text-gray-800">Electronics Engineering</h3>
+      <p class="text-gray-600 mt-2 text-sm">
+        Work with microcontrollers, embedded systems, communication devices, and electronic circuit design for modern innovations.
+      </p>
+    </div>
+
+    <!-- Power Technology -->
+    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+      <i class="fas fa-charging-station text-5xl text-orange-500 mb-4"></i>
+      <h3 class="text-xl font-semibold text-gray-800">Power Technology</h3>
+      <p class="text-gray-600 mt-2 text-sm">
+        Specialize in power generation, transmission, distribution, high-voltage engineering, and smart energy solutions.
+      </p>
+    </div>
+
+    <!-- Tourism & Hospitality -->
+    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+      <i class="fas fa-hotel text-5xl text-pink-500 mb-4"></i>
+      <h3 class="text-xl font-semibold text-gray-800">Tourism & Hospitality</h3>
+      <p class="text-gray-600 mt-2 text-sm">
+        Build a career in hotel management, travel operations, event planning, food services, and international hospitality industries.
+      </p>
+    </div>
+
+    <!-- Electromedical Technology -->
+    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+      <i class="fas fa-heartbeat text-5xl text-teal-500 mb-4"></i>
+      <h3 class="text-xl font-semibold text-gray-800">Electromedical Technology</h3>
+      <p class="text-gray-600 mt-2 text-sm">
+        Focus on biomedical engineering, diagnostic equipment, hospital machines, and medical technology that saves lives.
+      </p>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Student Life & Academics -->
     <section class="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
@@ -259,7 +295,7 @@
             class="rounded-2xl shadow-lg w-full">
         </div>
         <div>
-          <p class="text-gray-700 leading-relaxed mb-4">
+          <p class="text-gray-700 leading-relaxed mb-4 text-justify">
             Beyond the classroom, BPI encourages students to participate in academic clubs and competitions. Our
             students regularly take part in programming contests, science fairs, and engineering projects, often
             bringing home top prizes and accolades.

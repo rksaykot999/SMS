@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -213,54 +212,54 @@
 <body class="text-gray-800">
 
     <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-white shadow-lg py-4 px-6 md:px-12 flex justify-between items-center rounded-b-xl">
-        <!-- Logo with Scroll to Top functionality -->
-        <a href="index.php" class="block cursor-pointer">
-            <div class="text-2xl font-extrabold text-gray-800">
-                <img height="50px" width="50px" src="Images/Logo.png" alt="BPI Logo">
-            </div>
+    <nav class="sticky top-0 z-50 bg-white shadow-lg py-[10px] px-4 md:px-8 flex justify-between items-center">
+
+        <!-- Logo -->
+        <a href="index.php" class="flex items-center space-x-2 cursor-pointer">
+            <img src="Images/Logo.png" alt="BPI Logo" class="h-12 w-12">
         </a>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-6">
             <a href="index.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Home</a>
-            <a href="academic.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Academics</a>
+            <a href="about.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">About</a>
+            <a href="academic.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Academic</a>
             <a href="department.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Departments</a>
-            <a href="notice.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Notice</a>
             <a href="teachers.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Teachers</a>
             <a href="students.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Students</a>
-            <a href="about.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">About</a>
+            <a href="notice.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Notice</a>
         </div>
 
+        <!-- Right Section -->
         <div class="flex items-center space-x-4 relative">
-            <!-- Login Button with Dropdown -->
+            <!-- Desktop Login -->
             <button id="logoButton"
-                class="hidden md:flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition duration-300 focus:outline-none">
+                class="hidden md:flex items-center space-x-2 text-gray-600 hover:text-blue-600 focus:outline-none">
                 <span class="font-semibold">Login</span>
-                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold">
+                <div class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white">
                     <i class="fas fa-user"></i>
                 </div>
             </button>
 
-            <!-- Mobile Menu Toggle Button -->
-            <button id="menuButton" class="md:hidden text-gray-600 hover:text-blue-600 transition duration-300 focus:outline-none">
+            <!-- Mobile Menu Button -->
+            <button id="menuButton" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
 
             <!-- Dropdown Menu -->
             <div id="loginDropdown"
-                class="dropdown-menu absolute top-full right-0 mt-4 w-48 bg-white rounded-lg shadow-xl py-2 z-50 transform origin-top-right scale-100 transition-transform">
+                class="dropdown-menu absolute top-full right-0 mt-3 w-48 bg-white rounded-lg shadow-xl py-2 z-50">
                 <a href="student-login.php"
-                    class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition rounded-md mx-2 text-center">Student
-                    Login</a>
+                    class="block px-4 py-2 text-gray-600 font-semibold hover:bg-gray-100 text-center">Student Login</a>
                 <a href="teacher-login.php"
-                    class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition rounded-md mx-2 text-center">Teacher
-                    Login</a>
+                    class="block px-4 py-2 text-gray-600 font-semibold hover:bg-gray-100 text-center">Teacher Login</a>
+                <a href="admin_login.php"
+                    class="block px-4 py-2 text-gray-600 font-semibold hover:bg-gray-100 text-center">Admin Login</a>
             </div>
         </div>
     </nav>
 
-     <div id="mobileMenu" class="mobile-menu-container fixed top-16 left-0 w-full bg-white shadow-lg p-6 z-40 md:hidden">
+    <div id="mobileMenu" class="mobile-menu-container fixed top-16 left-0 w-full bg-white shadow-lg p-6 z-40 md:hidden">
         <a href="index.php" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
         <a href="academic.php" class="block py-2 text-blue-600 font-semibold">Academics</a>
         <a href="department.php" class="block py-2 text-gray-600 hover:text-blue-600">Departments</a>
@@ -283,12 +282,12 @@
             <!-- Title -->
             <h1 class="fade-up text-3xl sm:text-4xl md:text-6xl font-extrabold mb-6 leading-snug md:leading-tight">
                 Welcome to <br class="hidden sm:block">
-        Barisal Polytechnic Institute
+                Barisal Polytechnic Institute
             </h1>
 
             <!-- Subtitle -->
             <p
-                class="fade-up-delay text-base sm:text-lg md:text-2xl text-gray-200 mb-10 max-w-3xl leading-relaxed mx-auto">
+                class="fade-up-delay text-base sm:text-lg md:text-2xl text-gray-200 mb-10 max-w-3xl leading-relaxed mx-auto ">
                 At Barisal Polytechnic Institute, we don't just provide education — we create opportunities.
                 With a legacy of excellence in technical and vocational training, our mission is to empower
                 students with the knowledge, practical skills, and innovative mindset needed to thrive in a
@@ -334,7 +333,7 @@
 
                 <!-- Content Block -->
                 <div class="animate-on-scroll-right">
-                    <p class="text-gray-700 leading-relaxed mb-4 text-lg">
+                    <p class="text-gray-700 leading-relaxed mb-4 text-lg text-justify">
                         Barisal Polytechnic Institute (<span class="font-semibold text-indigo-700">BPI</span>) is a
                         premier
                         technical education institution committed to nurturing skilled professionals who can thrive in
@@ -343,7 +342,7 @@
                         built a
                         strong reputation for academic excellence, practical training, and innovation.
                     </p>
-                    <p class="text-gray-700 leading-relaxed mb-4 text-lg">
+                    <p class="text-gray-700 leading-relaxed mb-4 text-lg text-justify">
                         At BPI, students have access to a wide range of diploma programs across various technical
                         fields,
                         supported by state-of-the-art laboratories, modern classrooms, and a highly experienced faculty
@@ -355,7 +354,7 @@
                     </p>
                     <!-- Optional Call to Action -->
                     <div class="mt-8">
-                        <a href="about_page.html"
+                        <a href="about.php"
                             class="inline-block bg-indigo-600 text-white px-8 py-4 rounded-2xl shadow-lg hover:bg-indigo-700 hover:shadow-2xl transition font-semibold text-lg">
                             Read more
                         </a>
@@ -366,67 +365,100 @@
 
 
         <!-- Our Departments Section -->
-        <section id="departments" class="relative bg-blue-50 p-8 md:p-16 rounded-3xl shadow-xl overflow-hidden">
+<section id="departments" class="relative bg-blue-50 p-8 md:p-16 rounded-3xl shadow-xl overflow-hidden">
 
-            <!-- Decorative Shape -->
-            <div class="absolute top-0 right-0 w-72 h-72 bg-indigo-100 rounded-full blur-3xl opacity-30"></div>
+    <!-- Decorative Shape -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-indigo-100 rounded-full blur-3xl opacity-30"></div>
 
-            <div class="relative z-10">
-                <!-- Heading & Button -->
-                <div class="flex flex-col md:flex-row justify-between items-center mb-12">
-                    <h2 class="animate-on-scroll text-3xl md:text-4xl font-bold text-gray-800 text-center md:text-left">
-                        Our Departments
-                    </h2>
-                    <a href="departments.html"
-                        class="animate-on-scroll mt-4 md:mt-0 inline-block bg-indigo-600 text-white px-6 py-3 rounded-2xl shadow-lg hover:bg-indigo-700 transition font-semibold text-lg">
-                        Read More
-                    </a>
-                </div>
+    <div class="relative z-10">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Our Departments</h2>
 
-                <!-- Departments Grid -->
-                <div class="animate-stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Computer Science -->
-                    <div
-                        class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-                        <i class="fas fa-laptop-code text-5xl text-blue-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Computer Science</h3>
-                        <p class="text-gray-600 mt-2 text-sm">
-                            Prepare for modern computing and software development.
-                        </p>
-                    </div>
+        <!-- Departments Grid -->
+        <div class="animate-stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                    <!-- Civil Engineering -->
-                    <div
-                        class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-                        <i class="fas fa-hard-hat text-5xl text-green-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Civil Engineering</h3>
-                        <p class="text-gray-600 mt-2 text-sm">
-                            Learn the principles of building, bridge, and infrastructure construction.
-                        </p>
-                    </div>
-
-                    <!-- Electrical Technology -->
-                    <div
-                        class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-                        <i class="fas fa-bolt text-5xl text-purple-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Electrical Technology</h3>
-                        <p class="text-gray-600 mt-2 text-sm">
-                            Explore the world of power systems, generation, and electronics.
-                        </p>
-                    </div>
-
-                    <!-- Mechanical Technology -->
-                    <div
-                        class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-                        <i class="fas fa-cogs text-5xl text-red-600 mb-4"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Mechanical Technology</h3>
-                        <p class="text-gray-600 mt-2 text-sm">
-                            Master the principles of machinery, thermodynamics, and manufacturing processes.
-                        </p>
-                    </div>
-                </div>
+            <!-- Computer Science -->
+            <div
+                class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+                <i class="fas fa-laptop-code text-5xl text-blue-600 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Computer Science</h3>
+                <p class="text-gray-600 mt-2 text-sm">
+                    Learn programming, software engineering, database, AI & modern web technologies.
+                </p>
             </div>
-        </section>
+
+            <!-- Civil Engineering -->
+            <div
+                class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+                <i class="fas fa-building text-5xl text-green-600 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Civil Engineering</h3>
+                <p class="text-gray-600 mt-2 text-sm">
+                    Focus on construction, design, bridge building, and sustainable infrastructure.
+                </p>
+            </div>
+
+            <!-- Electrical Technology -->
+            <div
+                class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+                <i class="fas fa-plug text-5xl text-yellow-500 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Electrical Technology</h3>
+                <p class="text-gray-600 mt-2 text-sm">
+                    Study power generation, electrical circuits, electronics & renewable energy.
+                </p>
+            </div>
+
+            <!-- Mechanical Technology -->
+            <div
+                class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+                <i class="fas fa-cogs text-5xl text-red-600 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Mechanical Technology</h3>
+                <p class="text-gray-600 mt-2 text-sm">
+                    Learn about machines, thermodynamics, robotics & advanced manufacturing.
+                </p>
+            </div>
+
+            <!-- Electronics Engineering -->
+            <div
+                class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+                <i class="fas fa-microchip text-5xl text-indigo-600 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Electronics Engineering</h3>
+                <p class="text-gray-600 mt-2 text-sm">
+                    Explore microcontrollers, communication systems & modern electronic devices.
+                </p>
+            </div>
+
+            <!-- Power Technology -->
+            <div
+                class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+                <i class="fas fa-bolt text-5xl text-orange-500 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Power Technology</h3>
+                <p class="text-gray-600 mt-2 text-sm">
+                    Specialize in power plants, high-voltage systems, and smart grid technologies.
+                </p>
+            </div>
+
+            <!-- Tourism & Hospitality -->
+            <div
+                class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+                <i class="fas fa-utensils text-5xl text-pink-500 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Tourism & Hospitality</h3>
+                <p class="text-gray-600 mt-2 text-sm">
+                    Learn hotel management, event planning, travel operations & customer service.
+                </p>
+            </div>
+
+            <!-- Electromedical Technology -->
+            <div
+                class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+                <i class="fas fa-stethoscope text-5xl text-teal-500 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-800">Electromedical Technology</h3>
+                <p class="text-gray-600 mt-2 text-sm">
+                    Work with biomedical instruments, hospital equipment & healthcare technology.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
         <!-- Research & Innovation Section -->
@@ -445,7 +477,7 @@
                 <!-- Image -->
                 <div class="animate-on-scroll-left">
                     <img src="Images/innovation.png" alt="Research & Innovation"
-                class="rounded-2xl shadow-lg w-full hover:scale-105 transform transition duration-500">
+                        class="rounded-2xl shadow-lg w-full hover:scale-105 transform transition duration-500">
                 </div>
 
                 <!-- Content -->
@@ -536,13 +568,12 @@
                 <!-- Image Block -->
                 <div
                     class="animate-on-scroll-left p-4 rounded-2xl bg-white shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition duration-500">
-                    <img src="Images/Student-life.png" alt="Student Activities"
-                class="rounded-2xl w-full object-cover">
+                    <img src="Images/Student-life.png" alt="Student Activities" class="rounded-2xl w-full object-cover">
                 </div>
 
                 <!-- Content Block -->
                 <div class="animate-on-scroll-right">
-                    <p class="text-gray-700 leading-relaxed mb-6 text-lg">
+                    <p class="text-gray-700 leading-relaxed mb-6 text-lg text-justify">
                         At <span class="font-semibold text-indigo-700">Barisal Polytechnic Institute</span>, student
                         life goes far beyond traditional classrooms. We believe that holistic development is key to
                         preparing students for a dynamic world. Our campus offers a vibrant ecosystem where learning,
@@ -559,23 +590,23 @@
                     <ul class="space-y-5 text-gray-800">
                         <li class="animate-on-scroll flex items-center space-x-4">
                             <span
-                        class="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 shadow-md">
-                        <i class="fas fa-futbol text-xl"></i>
-                    </span>
+                                class="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-100 text-indigo-600 shadow-md">
+                                <i class="fas fa-futbol text-xl"></i>
+                            </span>
                             <span class="text-lg font-medium">Sports Clubs & Competitions</span>
                         </li>
                         <li class="animate-on-scroll flex items-center space-x-4" style="transition-delay: 0.1s">
                             <span
-                        class="flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 text-pink-600 shadow-md">
-                        <i class="fas fa-music text-xl"></i>
-                    </span>
+                                class="flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 text-pink-600 shadow-md">
+                                <i class="fas fa-music text-xl"></i>
+                            </span>
                             <span class="text-lg font-medium">Cultural & Music Groups</span>
                         </li>
                         <li class="animate-on-scroll flex items-center space-x-4" style="transition-delay: 0.2s">
                             <span
-                        class="flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-600 shadow-md">
-                        <i class="fas fa-brain text-xl"></i>
-                    </span>
+                                class="flex items-center justify-center w-12 h-12 rounded-full bg-green-100 text-green-600 shadow-md">
+                                <i class="fas fa-brain text-xl"></i>
+                            </span>
                             <span class="text-lg font-medium">Debate & Science Clubs</span>
                         </li>
                     </ul>
@@ -661,20 +692,6 @@
             </div>
         </section>
 
-        <!-- Admission Info Section -->
-        <section id="admission" class="bg-gray-100 p-8 md:p-12 rounded-3xl shadow-xl text-center">
-            <h2 class="animate-on-scroll text-3xl font-bold mb-6 text-gray-800">Join Us Today!</h2>
-            <p class="animate-on-scroll text-gray-700 max-w-2xl mx-auto mb-8" style="transition-delay: 0.1s">
-                Don't wait to start your academic journey at BPI. Click the button below to learn more about our
-                admission process.
-            </p>
-            <a href="#"
-                class="animate-on-scroll bg-green-600 text-white py-3 px-8 rounded-full font-semibold hover:bg-green-700 transition duration-300 transform hover:scale-105 shadow-lg"
-                style="transition-delay: 0.2s">
-                View Admission Info
-            </a>
-        </section>
-
         <!-- Contact Us Section -->
         <section class="bg-gray-100 p-8 md:p-12 rounded-3xl shadow-xl">
             <h2 class="animate-on-scroll text-3xl font-bold mb-8 text-center text-gray-800">Contact Us</h2>
@@ -701,11 +718,10 @@
     <?php include_once '../includes/footer.php'; ?>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed bottom-6 right-6 bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-full shadow-lg transition duration-300 hidden z-50">
+    <button id="backToTop"
+        class="fixed bottom-6 right-6 bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-full shadow-lg transition duration-300 hidden z-50">
         <!-- Up Arrow Icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" 
-            fill="none" viewBox="0 0 24 24" stroke="currentColor" 
-            class="w-6 h-6">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
         </svg>
     </button>
@@ -749,20 +765,20 @@
                 mobileMenu.classList.remove('show');
             });
         });
-        
+
         const backToTop = document.getElementById("backToTop");
 
         window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            backToTop.classList.remove("hidden");
-        } else {
-            backToTop.classList.add("hidden");
-        }
+            if (window.scrollY > 300) {
+                backToTop.classList.remove("hidden");
+            } else {
+                backToTop.classList.add("hidden");
+            }
         });
 
         // Smooth Scroll to Top
         backToTop.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+            window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
         // Intersection Observer for scroll animations
@@ -795,7 +811,7 @@
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
+
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     targetElement.scrollIntoView({

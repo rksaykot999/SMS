@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 
     <div class="text-center mt-6 text-sm">
-        <a href="#" class="text-teal-600 hover:underline font-medium">Forgot Password?</a>
+        <a href="teacher_register.php" class="text-teal-600 hover:underline font-medium">Create Account</a>
         <span class="text-gray-400 mx-2">•</span>
         <a href="index.php" class="text-teal-600 hover:underline font-medium">Back to Homepage</a>
     </div>

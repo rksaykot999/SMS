@@ -18,7 +18,7 @@
         .header-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/Hero.jpg") no-repeat center center;
             background-size: cover;
-            height: 40vh;
+            height: 50vh;
         }
 
         .dropdown-menu {
@@ -71,10 +71,10 @@
                 </div>
                 <div>
                     <h2 class="text-3xl font-bold mb-4 text-gray-800">Welcome to Barisal Polytechnic Institute</h2>
-                    <p class="text-gray-700 leading-relaxed mb-4">
+                    <p class="text-gray-700 leading-relaxed mb-4 text-justify">
                         Barisal Polytechnic Institute (BPI) is a beacon of technical excellence in Bangladesh. Established with the vision to foster innovation and practical skills, we have been shaping the future of young engineers and technicians for decades. Our commitment to providing a high-quality, hands-on learning experience sets us apart.
                     </p>
-                    <p class="text-gray-700 leading-relaxed">
+                    <p class="text-gray-700 leading-relaxed text-justify">
                         We believe in a holistic education that not only equips students with technical expertise but also instills strong ethical values and leadership qualities. Our campus is a vibrant community where students can thrive both academically and personally.
                     </p>
                 </div>
@@ -86,10 +86,10 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h2 class="text-3xl font-bold mb-4 text-gray-800">Our Mission & Vision</h2>
-                    <p class="text-gray-700 leading-relaxed mb-4">
+                    <p class="text-gray-700 leading-relaxed mb-4 text-justify">
                         Our **mission** is to provide an inclusive and dynamic learning environment that prepares students for the challenges of a rapidly evolving technological world. We aim to produce highly skilled, competent, and socially responsible graduates who can contribute significantly to the national and global economy.
                     </p>
-                    <p class="text-gray-700 leading-relaxed">
+                    <p class="text-gray-700 leading-relaxed text-justify">
                         Our **vision** is to be a nationally recognized leader in technical and vocational education, known for our innovative curriculum, cutting-edge research, and strong industry partnerships. We aspire to empower every student to achieve their full potential and become an agent of positive change.
                     </p>
                 </div>
@@ -103,35 +103,18 @@
         <section class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border-t-4 border-blue-500">
             <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Our History</h2>
             <div class="max-w-4xl mx-auto text-gray-700 leading-relaxed">
-                <p class="mb-4">
+                <p class="mb-4 text-justify">
                     Barisal Polytechnic Institute was established in 1962 and has since played a pivotal role in the technical education landscape of Bangladesh. Starting with a few departments, the institute has grown significantly over the decades, adding more courses and modern facilities to meet the growing demands of the industry.
                 </p>
-                <p class="mb-4">
+                <p class="mb-4 text-justify">
                     Throughout its history, BPI has been committed to adapting its curriculum to stay ahead of technological advancements. Our alumni have gone on to achieve great success in various fields, both locally and internationally, a testament to the quality of education provided here.
                 </p>
-                <p>
+                <p class="text-justify ">
                     Today, we stand as a premier institution, proud of our heritage and excited about the future. We continue to innovate and expand our offerings to provide the best possible education for our students.
                 </p>
             </div>
         </section>
-
-        <!-- Principal's Message Section -->
-        <section class="bg-gray-100 p-8 md:p-12 rounded-3xl shadow-xl text-center">
-            <div class="max-w-4xl mx-auto">
-                <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-blue-500 shadow-lg">
-                    <img src="Images/Principle.jpg" alt="Principal" class="w-full h-full object-cover">
-                </div>
-                <h2 class="text-3xl font-bold mb-4 text-gray-800">Message from the Principal</h2>
-                <p class="italic text-gray-600 mb-6">"Education is the most powerful weapon which you can use to change the world."</p>
-                <p class="text-gray-700 leading-relaxed">
-                    "It is my great pleasure to welcome you to Barisal Polytechnic Institute, a place where dreams take flight and futures are shaped. We are dedicated to providing an environment that encourages intellectual curiosity, fosters creativity, and promotes a strong sense of community. Our faculty members are not just teachers; they are mentors and guides who are committed to your success. Join us, and let's build a brighter future together."
-                </p>
-                <p class="font-semibold mt-4">
-                    - Engineer Md. Rakib Ullah
-                </p>
-            </div>
-        </section>
-
+        
         <!-- Contact Section from Homepage -->
         <section class="bg-gray-100 p-8 md:p-12 rounded-3xl shadow-xl">
             <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Contact Us</h2>

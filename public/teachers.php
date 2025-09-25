@@ -12,7 +12,7 @@
         .header-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/Hero.jpg") no-repeat center center;
             background-size: cover;
-            height: 40vh;
+            height: 50vh;
         }
     </style>
 </head>
@@ -30,26 +30,47 @@
     </header>
 
     <section class="teacher-list">
-        <h2>All Teachers</h2>
+    <h2>All Teachers</h2>
 
-        <?php
-        $stmt = $pdo->query("SELECT * FROM teachers ORDER BY name ASC");
-        while ($t = $stmt->fetch()) {
-            $img = !empty($t['image']) ? '../public/uploads/' . $t['image'] : '../assets/images/default-teacher.png';
-            echo '<div class="teacher-card-full">';
-            echo "<img src='$img' alt='Teacher'>";
-            echo '<div class="info">';
-            echo '<h3>' . htmlspecialchars($t['name']) . '</h3>';
-            echo '<p><strong>Designation:</strong> ' . htmlspecialchars($t['designation']) . '</p>';
-            echo '<p><strong>Department:</strong> ' . htmlspecialchars($t['department']) . '</p>';
-            echo '<p><strong>Shift:</strong> ' . htmlspecialchars($t['shift']) . '</p>';
-            echo '<p><strong>Qualification:</strong> ' . htmlspecialchars($t['qualification']) . '</p>';
-            echo '<p><strong>Phone:</strong> ' . htmlspecialchars($t['phone']) . '</p>';
-            echo '<p><strong>Email:</strong> ' . htmlspecialchars($t['email']) . '</p>';
-            echo '</div></div>';
-        }
-        ?>
-    </section>
+<?php
+// ... আগের ইনক্লুড/হেডার কোড ...
+
+$stmt = $pdo->query("
+    SELECT *
+    FROM teachers
+    ORDER BY
+      CASE
+        WHEN designation = 'Chief Instructor & Head of the Department' THEN 1
+        WHEN designation = 'Instructor' THEN 2
+        WHEN designation = 'Workshop Super' THEN 3
+        WHEN designation = 'Junior Instructor' THEN 4
+        ELSE 5
+      END,
+      CASE 
+        WHEN id = 17 THEN 0  -- Md. Selim Khelifa সব Junior Instructor এর আগে আসবে
+        ELSE 1
+      END,
+      name ASC
+");
+
+while ($t = $stmt->fetch()) {
+    $img = !empty($t['image']) ? '../public/uploads/' . $t['image'] : '../assets/images/default-teacher.png';
+    echo '<div class="teacher-card-full">';
+    echo "<img src='$img' alt='Teacher'>";
+    echo '<div class="info">';
+    echo '<h3>' . htmlspecialchars($t['name']) . '</h3>';
+    echo '<p><strong>Designation:</strong> ' . htmlspecialchars($t['designation']) . '</p>';
+    echo '<p><strong>Department:</strong> ' . htmlspecialchars($t['department']) . '</p>';
+    echo '<p><strong>Shift:</strong> ' . htmlspecialchars($t['shift']) . '</p>';
+    echo '<p><strong>Qualification:</strong> ' . htmlspecialchars($t['qualification']) . '</p>';
+    echo '<p><strong>Phone:</strong> ' . htmlspecialchars($t['phone']) . '</p>';
+    echo '<p><strong>Email:</strong> ' . htmlspecialchars($t['email']) . '</p>';
+    echo '</div></div>';
+}
+?>
+
+</section>
+
 
     <?php include_once '../includes/footer.php'; ?>
 </body>

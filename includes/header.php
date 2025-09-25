@@ -9,6 +9,7 @@ if (session_status() == PHP_SESSION_NONE)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Management System</title>
+    
     <!-- Use Tailwind CSS for rapid styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -41,7 +42,7 @@ if (session_status() == PHP_SESSION_NONE)
 <body class="bg-gray-50">
 
     <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-white shadow-lg py-4 px-4 md:px-8 flex justify-between items-center rounded-b-xl">
+    <nav class="sticky top-0 z-50 bg-white shadow-lg py-[10px] px-4 md:px-8 flex justify-between items-center">
 
         <!-- Logo -->
         <a href="index.php" class="flex items-center space-x-2 cursor-pointer">
@@ -51,12 +52,12 @@ if (session_status() == PHP_SESSION_NONE)
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-6">
             <a href="index.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Home</a>
-            <a href="academic.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Academics</a>
+            <a href="about.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">About</a>
+            <a href="academic.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Academic</a>
             <a href="department.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Departments</a>
-            <a href="notice.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Notice</a>
             <a href="teachers.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Teachers</a>
             <a href="students.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Students</a>
-            <a href="about.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">About</a>
+            <a href="notice.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Notice</a>
         </div>
 
         <!-- Right Section -->
@@ -82,6 +83,8 @@ if (session_status() == PHP_SESSION_NONE)
                     class="block px-4 py-2 text-gray-600 font-semibold hover:bg-gray-100 text-center">Student Login</a>
                 <a href="teacher-login.php"
                     class="block px-4 py-2 text-gray-600 font-semibold hover:bg-gray-100 text-center">Teacher Login</a>
+                <a href="admin_login.php"
+                    class="block px-4 py-2 text-gray-600 font-semibold hover:bg-gray-100 text-center">Admin Login</a>
             </div>
         </div>
     </nav>

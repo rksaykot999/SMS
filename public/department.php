@@ -18,7 +18,7 @@
         .header-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/Hero.jpg") no-repeat center center;
             background-size: cover;
-            height: 40vh;
+            height: 50vh;
         }
 
         .dropdown-menu {
@@ -62,83 +62,157 @@
 
     <!-- Main Content Sections -->
     <main class="container mx-auto p-6 md:p-12 space-y-16">
-        <section class="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
-            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Explore Our Technical Departments</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Department Card: Computer Technology -->
-                <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/400x250/4f46e5/FFFFFF?text=Computer+Technology" alt="Computer Technology" class="rounded-lg mb-4 w-full">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Computer Technology</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        This department focuses on modern computing, software development, networking, and hardware design. Students gain hands-on experience in building innovative technological solutions.
-                    </p>
-                    <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">
-                        View Details
-                    </a>
-                </div>
+       <section class="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
+  <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Explore Our Technical Departments</h2>
 
-                <!-- Department Card: Civil Technology -->
-                <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/400x250/10b981/FFFFFF?text=Civil+Technology" alt="Civil Technology" class="rounded-lg mb-4 w-full">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Civil Technology</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        Learn the principles of designing, constructing, and maintaining infrastructure such as roads, bridges, and buildings. This department provides a strong foundation in structural engineering.
-                    </p>
-                    <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">
-                        View Details
-                    </a>
-                </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <!-- Department Card: Electrical Technology -->
-                <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/400x250/ef4444/FFFFFF?text=Electrical+Technology" alt="Electrical Technology" class="rounded-lg mb-4 w-full">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Electrical Technology</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        This department covers the fundamentals of electricity, electronics, and power systems. Students are prepared for careers in power generation, distribution, and automation.
-                    </p>
-                    <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">
-                        View Details
-                    </a>
-                </div>
+    <!-- Computer Technology -->
+    <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      <div class="h-48 w-full rounded-lg mb-4 overflow-hidden flex items-center justify-center bg-gradient-to-br from-indigo-600 to-blue-500">
+        <i class="fas fa-laptop-code text-6xl text-white" aria-hidden="true"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Computer Technology</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        Modern computing, software development, networking & hardware design. Hands-on labs & projects.
+      </p>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="inline-block px-3 py-1 text-xs font-semibold bg-blue-100 text-blue-800 rounded-full">Diploma</span>
+          <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">4 Years</span>
+        </div>
+        <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">View Details</a>
+      </div>
+    </div>
 
-                <!-- Department Card: Mechanical Technology -->
-                <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/400x250/eab308/FFFFFF?text=Mechanical+Technology" alt="Mechanical Technology" class="rounded-lg mb-4 w-full">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Mechanical Technology</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        Focus on the design, analysis, and manufacturing of mechanical systems. Students learn about thermodynamics, fluid mechanics, and material science to build functional machines.
-                    </p>
-                    <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">
-                        View Details
-                    </a>
-                </div>
-                
-                <!-- Department Card: Electronics Technology -->
-                <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/400x250/3b82f6/FFFFFF?text=Electronics+Technology" alt="Electronics Technology" class="rounded-lg mb-4 w-full">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Electronics Technology</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        Explore the world of electronic circuits, microcontrollers, and communication systems. This discipline is essential for developing modern gadgets and high-tech devices.
-                    </p>
-                    <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">
-                        View Details
-                    </a>
-                </div>
+    <!-- Civil Technology -->
+    <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      <div class="h-48 w-full rounded-lg mb-4 overflow-hidden flex items-center justify-center bg-gradient-to-br from-emerald-500 to-green-400">
+        <i class="fas fa-building text-6xl text-white" aria-hidden="true"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Civil Technology</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        Design & construction of infrastructure — roads, bridges & buildings. Strong structural labs.
+      </p>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="inline-block px-3 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">Diploma</span>
+          <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">4 Years</span>
+        </div>
+        <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">View Details</a>
+      </div>
+    </div>
 
-                <!-- Department Card: Power Technology -->
-                <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <img src="https://placehold.co/400x250/6d28d9/FFFFFF?text=Power+Technology" alt="Power Technology" class="rounded-lg mb-4 w-full">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Power Technology</h3>
-                    <p class="text-gray-600 text-sm mb-4">
-                        This department provides detailed knowledge on power generation, transmission, distribution, and modern power systems. Students also get to work with renewable energy.
-                    </p>
-                    <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">
-                        View Details
-                    </a>
-                </div>
-            </div>
-        </section>
+    <!-- Electrical Technology -->
+    <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      <div class="h-48 w-full rounded-lg mb-4 overflow-hidden flex items-center justify-center bg-gradient-to-br from-yellow-500 to-orange-400">
+        <i class="fas fa-plug text-6xl text-white" aria-hidden="true"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Electrical Technology</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        Electricity, electronics, control systems & renewable energy technologies with lab practice.
+      </p>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="inline-block px-3 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">Diploma</span>
+          <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">4 Years</span>
+        </div>
+        <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">View Details</a>
+      </div>
+    </div>
+
+    <!-- Mechanical Technology -->
+    <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      <div class="h-48 w-full rounded-lg mb-4 overflow-hidden flex items-center justify-center bg-gradient-to-br from-red-500 to-pink-400">
+        <i class="fas fa-cogs text-6xl text-white" aria-hidden="true"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Mechanical Technology</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        Machines, thermodynamics, fluid mechanics & manufacturing — strong workshop and CAD practice.
+      </p>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="inline-block px-3 py-1 text-xs font-semibold bg-red-100 text-red-800 rounded-full">Diploma</span>
+          <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">4 Years</span>
+        </div>
+        <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">View Details</a>
+      </div>
+    </div>
+
+    <!-- Electronics Technology -->
+    <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      <div class="h-48 w-full rounded-lg mb-4 overflow-hidden flex items-center justify-center bg-gradient-to-br from-sky-500 to-indigo-400">
+        <i class="fas fa-microchip text-6xl text-white" aria-hidden="true"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Electronics Technology</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        Microcontrollers, circuit design & communication systems — ideal for embedded systems projects.
+      </p>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="inline-block px-3 py-1 text-xs font-semibold bg-sky-100 text-sky-800 rounded-full">Diploma</span>
+          <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">4 Years</span>
+        </div>
+        <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">View Details</a>
+      </div>
+    </div>
+
+    <!-- Power Technology -->
+    <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      <div class="h-48 w-full rounded-lg mb-4 overflow-hidden flex items-center justify-center bg-gradient-to-br from-violet-700 to-indigo-600">
+        <i class="fas fa-bolt text-6xl text-white" aria-hidden="true"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Power Technology</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        Power generation, transmission & smart grid topics; practical labs with high-voltage safety training.
+      </p>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="inline-block px-3 py-1 text-xs font-semibold bg-violet-100 text-violet-800 rounded-full">Diploma</span>
+          <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">4 Years</span>
+        </div>
+        <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">View Details</a>
+      </div>
+    </div>
+
+    <!-- Tourism & Hospitality -->
+    <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      <div class="h-48 w-full rounded-lg mb-4 overflow-hidden flex items-center justify-center bg-gradient-to-br from-pink-500 to-orange-400">
+        <i class="fas fa-concierge-bell text-6xl text-white" aria-hidden="true"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Tourism & Hospitality</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        Hotel management, event planning, travel operations & customer service — real-world internships available.
+      </p>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="inline-block px-3 py-1 text-xs font-semibold bg-pink-100 text-pink-800 rounded-full">Diploma</span>
+          <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">4 Years</span>
+        </div>
+        <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">View Details</a>
+      </div>
+    </div>
+
+    <!-- Electromedical Technology -->
+    <div class="bg-gray-50 p-6 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+      <div class="h-48 w-full rounded-lg mb-4 overflow-hidden flex items-center justify-center bg-gradient-to-br from-teal-500 to-cyan-400">
+        <i class="fas fa-stethoscope text-6xl text-white" aria-hidden="true"></i>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Electromedical Technology</h3>
+      <p class="text-gray-600 text-sm mb-4">
+        Biomedical instruments, hospital equipment maintenance & diagnostics — prepares students for healthcare tech roles.
+      </p>
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <span class="inline-block px-3 py-1 text-xs font-semibold bg-teal-100 text-teal-800 rounded-full">Diploma</span>
+          <span class="inline-block px-3 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-full">4 Years</span>
+        </div>
+        <a href="#" class="inline-block px-4 py-2 text-white font-semibold bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300">View Details</a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
         <!-- Why Choose Our Departments Section -->
         <section class="bg-blue-50 p-8 md:p-12 rounded-3xl shadow-xl">
@@ -163,41 +237,7 @@
         </section>
 
         <!-- Faculty and Labs Section -->
-        <section class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border-t-4 border-blue-500">
-            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Our Faculty & Labs</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Teacher Card Example -->
-                <div class="p-6 bg-gray-50 rounded-2xl shadow-md flex flex-col items-center text-center">
-                    <img src="https://placehold.co/100x100/3b82f6/FFFFFF?text=Teacher" alt="Teacher" class="rounded-full mb-4 w-24 h-24 object-cover">
-                    <h4 class="text-lg font-bold">Teacher Name</h4>
-                    <p class="text-gray-600 text-sm">Department: Computer Technology</p>
-                    <p class="text-gray-600 text-sm">Specialization: Cyber Security</p>
-                    <a href="#" class="mt-4 text-blue-600 hover:text-blue-700 transition duration-300 font-semibold">View Profile</a>
-                </div>
-                 <!-- Teacher Card Example -->
-                <div class="p-6 bg-gray-50 rounded-2xl shadow-md flex flex-col items-center text-center">
-                    <img src="https://placehold.co/100x100/3b82f6/FFFFFF?text=Teacher" alt="Teacher" class="rounded-full mb-4 w-24 h-24 object-cover">
-                    <h4 class="text-lg font-bold">Teacher Name</h4>
-                    <p class="text-gray-600 text-sm">Department: Civil Technology</p>
-                    <p class="text-gray-600 text-sm">Specialization: Infrastructure Design</p>
-                    <a href="#" class="mt-4 text-blue-600 hover:text-blue-700 transition duration-300 font-semibold">View Profile</a>
-                </div>
-                 <!-- Teacher Card Example -->
-                <div class="p-6 bg-gray-50 rounded-2xl shadow-md flex flex-col items-center text-center">
-                    <img src="https://placehold.co/100x100/3b82f6/FFFFFF?text=Teacher" alt="Teacher" class="rounded-full mb-4 w-24 h-24 object-cover">
-                    <h4 class="text-lg font-bold">Teacher Name</h4>
-                    <p class="text-gray-600 text-sm">Department: Mechanical Technology</p>
-                    <p class="text-gray-600 text-sm">Specialization: Machine Tools</p>
-                    <a href="#" class="mt-4 text-blue-600 hover:text-blue-700 transition duration-300 font-semibold">View Profile</a>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="teachers.php" class="inline-block px-8 py-3 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
-                    View All Teachers
-                </a>
-            </div>
-        </section>
+       
     </main>
 
     <!-- Footer Section -->

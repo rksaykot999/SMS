@@ -88,7 +88,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 
         <div class="mt-6 text-center">
-            <a href="#" class="text-sm text-indigo-600 hover:text-indigo-800 hover:underline">Forgot Password?</a>
+            <a href="student_register.php" class="text-sm text-indigo-600 hover:text-indigo-800 hover:underline">Create Account</a>
             <span class="text-gray-400 mx-2">•</span>
             <a href="index.php" class="text-sm text-indigo-600 hover:text-indigo-800 hover:underline">Back to
                 Homepage</a>

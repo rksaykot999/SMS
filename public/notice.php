@@ -1,3 +1,11 @@
+<?php
+include_once '../includes/db.php';
+session_start();
+
+// সব notice fetch করা
+$notices = $pdo->query("SELECT * FROM notices ORDER BY created_at DESC")->fetchAll();
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +26,7 @@
         .header-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/Hero.jpg") no-repeat center center;
             background-size: cover;
-            height: 40vh;
+            height: 50vh;
         }
 
         .dropdown-menu {
@@ -61,9 +69,35 @@
     </header>
 
     <!-- Main Content Sections -->
+
+    <div class="main-content px-6 py-10 bg-gray-100 min-h-screen">
+    <div class="notice-container max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+        <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6 border-b pb-3">
+            📢 All Notices
+        </h2>
+        
+        <?php if($notices){ ?>
+            <ul class="space-y-4 max-h-96 overflow-y-auto pr-2">
+                <?php foreach($notices as $n){ ?>
+                    <li class="bg-gray-50 border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition">
+                        <strong class="text-lg font-semibold text-gray-800 block mb-2">
+                            <?= htmlspecialchars($n['title']); ?>
+                        </strong>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            <?= htmlspecialchars($n['content']); ?>
+                        </p>
+                    </li>
+                <?php } ?>
+            </ul>
+        <?php } else { ?>
+            <p class="text-center text-gray-500 italic">No notices yet.</p>
+        <?php } ?>
+    </div>
+</div>
+
     <main class="container mx-auto p-6 md:p-12 space-y-16">
         <section class="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
-            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Latest Notices</h2>
+        <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Latest Notices</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Notice Card 1 -->

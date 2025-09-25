@@ -92,26 +92,42 @@ $student_notices = $stmt->fetchAll();
     </script>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <!-- Header -->
-    <header class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <h1 class="text-xl font-bold text-primary-700">Student Dashboard</h1>
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg py-[10px] px-4 md:px-8 flex justify-between items-center">
+
+        <!-- Logo -->
+        <a href="index.php" class="flex items-center space-x-2 cursor-pointer">
+            <img src="Images/Logo.png" alt="BPI Logo" class="h-12 w-12">
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-6">
+            <a href="index.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Home</a>
+            <a href="about.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">About</a>
+            <a href="academic.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Academic</a>
+            <a href="department.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Departments</a>
+            <a href="teachers.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Teachers</a>
+            <a href="students.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Students</a>
+            <a href="notice.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Notice</a>
+        </div>
+
+        <!-- Right Section -->
+        <div class="flex items-center space-x-4 relative">
+            <!-- Desktop Login -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <form method="post" action="logout.php">
+                            <button type="submit"
+                                class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition duration-200">
+                                <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                            </button>
+                        </form>
                     </div>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <span class="text-gray-700">Welcome, <?php echo htmlspecialchars($student['name']); ?></span>
-                    <form method="post" action="logout.php">
-                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition duration-200">
-                            <i class="fas fa-sign-out-alt mr-2"></i>Logout
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -143,6 +159,56 @@ $student_notices = $stmt->fetchAll();
                         <div class="flex items-center text-gray-600">
                             <i class="fas fa-calendar mr-2 text-primary-500"></i>
                             <span><strong>Session:</strong> <?php echo htmlspecialchars($student['session']); ?></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Information Section -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold text-gray-800">Personal Information</h3>
+                <i class="fas fa-user text-2xl text-primary-500"></i>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-medium text-gray-700 mb-4">Family Information</h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="text-gray-600">Father's Name:</span>
+                            <span class="font-medium"><?php echo htmlspecialchars($student['father_name']); ?></span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="text-gray-600">Mother's Name:</span>
+                            <span class="font-medium"><?php echo htmlspecialchars($student['mother_name']); ?></span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="text-gray-600">Father's Phone:</span>
+                            <span class="font-medium"><?php echo htmlspecialchars($student['father_phone']); ?></span>
+                        </div>
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="text-gray-600">Mother's Phone:</span>
+                            <span class="font-medium"><?php echo htmlspecialchars($student['mother_phone']); ?></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-medium text-gray-700 mb-4">Contact Information</h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between border-b pb-2">
+                            <span class="text-gray-600">Student Phone:</span>
+                            <span class="font-medium"><?php echo htmlspecialchars($student['phone']); ?></span>
+                        </div>
+                        <div class="border-b pb-2">
+                            <div class="text-gray-600 mb-1">Present Address:</div>
+                            <div class="font-medium"><?php echo htmlspecialchars($student['present_address']); ?></div>
+                        </div>
+                        <div>
+                            <div class="text-gray-600 mb-1">Permanent Address:</div>
+                            <div class="font-medium"><?php echo htmlspecialchars($student['permanent_address']); ?></div>
                         </div>
                     </div>
                 </div>
@@ -290,56 +356,6 @@ $student_notices = $stmt->fetchAll();
             <?php endif; ?>
         </div>
 
-        <!-- Personal Information Section -->
-        <div class="bg-white rounded-xl shadow-md p-6 mb-8">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-xl font-bold text-gray-800">Personal Information</h3>
-                <i class="fas fa-user text-2xl text-primary-500"></i>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <h4 class="font-medium text-gray-700 mb-4">Family Information</h4>
-                    <div class="space-y-3">
-                        <div class="flex justify-between border-b pb-2">
-                            <span class="text-gray-600">Father's Name:</span>
-                            <span class="font-medium"><?php echo htmlspecialchars($student['father_name']); ?></span>
-                        </div>
-                        <div class="flex justify-between border-b pb-2">
-                            <span class="text-gray-600">Mother's Name:</span>
-                            <span class="font-medium"><?php echo htmlspecialchars($student['mother_name']); ?></span>
-                        </div>
-                        <div class="flex justify-between border-b pb-2">
-                            <span class="text-gray-600">Father's Phone:</span>
-                            <span class="font-medium"><?php echo htmlspecialchars($student['father_phone']); ?></span>
-                        </div>
-                        <div class="flex justify-between border-b pb-2">
-                            <span class="text-gray-600">Mother's Phone:</span>
-                            <span class="font-medium"><?php echo htmlspecialchars($student['mother_phone']); ?></span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="font-medium text-gray-700 mb-4">Contact Information</h4>
-                    <div class="space-y-3">
-                        <div class="flex justify-between border-b pb-2">
-                            <span class="text-gray-600">Student Phone:</span>
-                            <span class="font-medium"><?php echo htmlspecialchars($student['phone']); ?></span>
-                        </div>
-                        <div class="border-b pb-2">
-                            <div class="text-gray-600 mb-1">Present Address:</div>
-                            <div class="font-medium"><?php echo htmlspecialchars($student['present_address']); ?></div>
-                        </div>
-                        <div>
-                            <div class="text-gray-600 mb-1">Permanent Address:</div>
-                            <div class="font-medium"><?php echo htmlspecialchars($student['permanent_address']); ?></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Upcoming Tests Section -->
         <div class="bg-white rounded-xl shadow-md p-6 mb-8">
             <div class="flex justify-between items-center mb-6">
@@ -433,14 +449,6 @@ $student_notices = $stmt->fetchAll();
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div class="md:flex md:items-center md:justify-between">
-                <div class="text-center md:text-left">
-                    <p class="text-sm text-gray-500">&copy; 2023 Student Dashboard. All rights reserved.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include_once '../includes/footer.php'; ?>
 </body>
 </html>
