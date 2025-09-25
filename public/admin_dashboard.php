@@ -115,14 +115,14 @@ $msg = $_GET['msg'] ?? '';
         <div class="card-body p-0">
           <table class="table table-sm mb-0 small-table">
             <thead class="table-light">
-              <tr><th>ID</th><th>Name</th><th>Roll</th><th>Dept</th><th>Submitted</th><th>Action</th></tr>
+              <tr><th>Name</th><th>Roll</th><th>Dept</th><th>Submitted</th><th>Action</th></tr>
             </thead>
             <tbody>
             <?php if(empty($pendingStudents)): ?>
               <tr><td colspan="6" class="text-center py-3">No pending student registrations</td></tr>
             <?php else: foreach($pendingStudents as $p): ?>
               <tr>
-                <td><?=htmlspecialchars($p['id'])?></td>
+                
                 <td><?=htmlspecialchars($p['name'])?></td>
                 <td><?=htmlspecialchars($p['roll'])?></td>
                 <td><?=htmlspecialchars($p['department'])?></td>
@@ -147,14 +147,14 @@ $msg = $_GET['msg'] ?? '';
         <div class="card-body p-0">
           <table class="table table-sm mb-0 small-table">
             <thead class="table-light">
-              <tr><th>ID</th><th>Name</th><th>Email</th><th>Dept</th><th>Submitted</th><th>Action</th></tr>
+              <tr><th>Name</th><th>Email</th><th>Dept</th><th>Submitted</th><th>Action</th></tr>
             </thead>
             <tbody>
             <?php if(empty($pendingTeachers)): ?>
               <tr><td colspan="6" class="text-center py-3">No pending teacher registrations</td></tr>
             <?php else: foreach($pendingTeachers as $p): ?>
               <tr>
-                <td><?=htmlspecialchars($p['id'])?></td>
+                
                 <td><?=htmlspecialchars($p['name'])?></td>
                 <td><?=htmlspecialchars($p['email'])?></td>
                 <td><?=htmlspecialchars($p['department'])?></td>
@@ -177,13 +177,13 @@ $msg = $_GET['msg'] ?? '';
             <div class="card-header"><strong>Recent Approved Students</strong></div>
             <div class="card-body p-0">
               <table class="table table-sm mb-0">
-                <thead class="table-light"><tr><th>ID</th><th>Name</th><th>Roll</th><th>Dept</th></tr></thead>
+                <thead class="table-light"><tr><th>Name</th><th>Roll</th><th>Dept</th></tr></thead>
                 <tbody>
                   <?php if(empty($students)): ?>
                     <tr><td colspan="4" class="text-center py-3">No approved students yet</td></tr>
                   <?php else: foreach($students as $s): ?>
                     <tr>
-                      <td><?=htmlspecialchars($s['id'])?></td>
+                      
                       <td><?=htmlspecialchars($s['name'])?></td>
                       <td><?=htmlspecialchars($s['roll'])?></td>
                       <td><?=htmlspecialchars($s['department'])?></td>
@@ -200,13 +200,13 @@ $msg = $_GET['msg'] ?? '';
             <div class="card-header"><strong>Recent Approved Teachers</strong></div>
             <div class="card-body p-0">
               <table class="table table-sm mb-0">
-                <thead class="table-light"><tr><th>ID</th><th>Name</th><th>Email</th><th>Dept</th></tr></thead>
+                <thead class="table-light"><tr><th>Name</th><th>Email</th><th>Dept</th></tr></thead>
                 <tbody>
                   <?php if(empty($teachers)): ?>
                     <tr><td colspan="4" class="text-center py-3">No approved teachers yet</td></tr>
                   <?php else: foreach($teachers as $t): ?>
                     <tr>
-                      <td><?=htmlspecialchars($t['id'])?></td>
+                     
                       <td><?=htmlspecialchars($t['name'])?></td>
                       <td><?=htmlspecialchars($t['email'])?></td>
                       <td><?=htmlspecialchars($t['department'])?></td>

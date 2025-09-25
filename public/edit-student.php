@@ -1,7 +1,7 @@
 <?php
-// public/edit-student.php
+// public/edit-teacher.php
+include_once '../includes/db.php';
 session_start();
-require_once __DIR__ . '/../includes/db.php';
 
 if (!isset($_SESSION['admin_id'])) {
     header('Location: admin_login.php');
@@ -13,63 +13,70 @@ if (!$id) {
     die("Invalid request");
 }
 
-// fetch student
-$stmt = $pdo->prepare("SELECT * FROM students WHERE id=?");
+// fetch teacher
+$stmt = $pdo->prepare("SELECT * FROM teachers WHERE id=?");
 $stmt->execute([$id]);
-$student = $stmt->fetch();
-if (!$student) {
-    die("Student not found!");
+$teacher = $stmt->fetch();
+if (!$teacher) {
+    die("Teacher not found!");
 }
 
 $success = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $sql = "UPDATE students SET 
-                name=?, roll=?, registration=?, department=?, semester=?, session=?, shift=?,
-                father_name=?, mother_name=?, father_phone=?, mother_phone=?,
-                present_address=?, permanent_address=?, phone=?, 
-                result=?
-            WHERE id=?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([
-        $_POST['name'], $_POST['roll'], $_POST['registration'], $_POST['department'], $_POST['semester'],
-        $_POST['session'], $_POST['shift'], $_POST['father_name'], $_POST['mother_name'],
-        $_POST['father_phone'], $_POST['mother_phone'], $_POST['present_address'], $_POST['permanent_address'],
-        $_POST['phone'], $_POST['result'], $id
-    ]);
+    $name = trim($_POST['name']);
+    $designation = trim($_POST['designation']);
+    $department = trim($_POST['department']);
+    $shift = trim($_POST['shift']);
+    $qualification = trim($_POST['qualification']);
+    $phone = trim($_POST['phone']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']); // plaintext, consider hashing
 
-    // image update (optional)
+    $image_name = $teacher['image'];
+
+    // image upload
     if (!empty($_FILES['image']['name'])) {
-        $imagePath = "/students/" . time() . "_" . basename($_FILES['image']['name']);
-        move_uploaded_file($_FILES['image']['tmp_name'], __DIR__ . '/../uploads' . $imagePath);
-        $pdo->prepare("UPDATE students SET image=? WHERE id=?")->execute([$imagePath, $id]);
+        $filename = basename($_FILES['image']['name']);
+        $filename = preg_replace("/[^A-Za-z0-9\.\-_]/", "", $filename);
+        $image_name = time().'_'.$filename;
+
+        $uploadDir = __DIR__ . '/../uploads/teachers/';
+        if (!is_dir($uploadDir)) {
+            mkdir($uploadDir, 0777, true);
+        }
+
+        move_uploaded_file($_FILES['image']['tmp_name'], $uploadDir.$image_name);
     }
 
-    // reg_paper_image update
-    if (!empty($_FILES['reg_paper_image']['name'])) {
-        $regImagePath = "/students/" . time() . "_" . basename($_FILES['reg_paper_image']['name']);
-        move_uploaded_file($_FILES['reg_paper_image']['tmp_name'], __DIR__ . '/../uploads' . $regImagePath);
-        $pdo->prepare("UPDATE students SET reg_paper_image=? WHERE id=?")->execute([$regImagePath, $id]);
-    }
+    // update teacher
+    $stmt = $pdo->prepare("
+        UPDATE teachers SET 
+            name=?, designation=?, department=?, shift=?, qualification=?, phone=?, email=?, password=?, image=?
+        WHERE id=?
+    ");
+    $stmt->execute([$name, $designation, $department, $shift, $qualification, $phone, $email, $password, $image_name, $id]);
 
     $success = true;
-    // Refresh student data
-    $stmt = $pdo->prepare("SELECT * FROM students WHERE id=?");
+
+    // refresh teacher data
+    $stmt = $pdo->prepare("SELECT * FROM teachers WHERE id=?");
     $stmt->execute([$id]);
-    $student = $stmt->fetch();
+    $teacher = $stmt->fetch();
 }
 ?>
+
 <!doctype html>
 <html lang="bn">
 <head>
   <meta charset="utf-8">
-  <title>Edit Student</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Edit Teacher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
 <div class="container py-4">
-  <h3 class="mb-3">Edit Student</h3>
+  <h3 class="mb-3">Edit Teacher</h3>
 
   <?php if($success): ?>
     <script>alert("✅ Update সফল হয়েছে!");</script>
@@ -77,86 +84,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <form method="post" enctype="multipart/form-data" class="card p-3 shadow-sm">
     <div class="row g-3">
+
+      <div class="col-md-6">
+        <label class="form-label">Current Image</label><br>
+        <img src="<?=!empty($teacher['image']) ? '../uploads/teachers/'.$teacher['image'] : '../assets/images/default-teacher.png'?>" class="img-thumbnail mb-2" style="max-width:150px;">
+        <input type="file" name="image" class="form-control">
+      </div>
+
       <div class="col-md-6">
         <label class="form-label">Name</label>
-        <input type="text" name="name" class="form-control" value="<?=htmlspecialchars($student['name'])?>" required>
+        <input type="text" name="name" class="form-control" value="<?=htmlspecialchars($teacher['name'])?>" required>
       </div>
+
       <div class="col-md-6">
-        <label class="form-label">Roll</label>
-        <input type="text" name="roll" class="form-control" value="<?=htmlspecialchars($student['roll'])?>">
+        <label class="form-label">Designation</label>
+        <input type="text" name="designation" class="form-control" value="<?=htmlspecialchars($teacher['designation'])?>" required>
       </div>
-      <div class="col-md-6">
-        <label class="form-label">Registration</label>
-        <input type="text" name="registration" class="form-control" value="<?=htmlspecialchars($student['registration'])?>">
-      </div>
+
       <div class="col-md-6">
         <label class="form-label">Department</label>
-        <input type="text" name="department" class="form-control" value="<?=htmlspecialchars($student['department'])?>">
+        <input type="text" name="department" class="form-control" value="<?=htmlspecialchars($teacher['department'])?>" required>
       </div>
-      <div class="col-md-6">
-        <label class="form-label">Semester</label>
-        <input type="text" name="semester" class="form-control" value="<?=htmlspecialchars($student['semester'])?>">
-      </div>
-      <div class="col-md-6">
-        <label class="form-label">Session</label>
-        <input type="text" name="session" class="form-control" value="<?=htmlspecialchars($student['session'])?>">
-      </div>
+
       <div class="col-md-6">
         <label class="form-label">Shift</label>
-        <input type="text" name="shift" class="form-control" value="<?=htmlspecialchars($student['shift'])?>">
+        <input type="text" name="shift" class="form-control" value="<?=htmlspecialchars($teacher['shift'])?>" required>
       </div>
 
       <div class="col-md-6">
-        <label class="form-label">Father's Name</label>
-        <input type="text" name="father_name" class="form-control" value="<?=htmlspecialchars($student['father_name'])?>">
+        <label class="form-label">Qualification</label>
+        <input type="text" name="qualification" class="form-control" value="<?=htmlspecialchars($teacher['qualification'])?>" required>
       </div>
-      <div class="col-md-6">
-        <label class="form-label">Mother's Name</label>
-        <input type="text" name="mother_name" class="form-control" value="<?=htmlspecialchars($student['mother_name'])?>">
-      </div>
-      <div class="col-md-6">
-        <label class="form-label">Father Phone</label>
-        <input type="text" name="father_phone" class="form-control" value="<?=htmlspecialchars($student['father_phone'])?>">
-      </div>
-      <div class="col-md-6">
-        <label class="form-label">Mother Phone</label>
-        <input type="text" name="mother_phone" class="form-control" value="<?=htmlspecialchars($student['mother_phone'])?>">
-      </div>
-      <div class="col-md-12">
-        <label class="form-label">Present Address</label>
-        <textarea name="present_address" class="form-control"><?=htmlspecialchars($student['present_address'])?></textarea>
-      </div>
-      <div class="col-md-12">
-        <label class="form-label">Permanent Address</label>
-        <textarea name="permanent_address" class="form-control"><?=htmlspecialchars($student['permanent_address'])?></textarea>
-      </div>
+
       <div class="col-md-6">
         <label class="form-label">Phone</label>
-        <input type="text" name="phone" class="form-control" value="<?=htmlspecialchars($student['phone'])?>">
-      </div>
-      <div class="col-md-6">
-        <label class="form-label">Result</label>
-        <input type="text" name="result" class="form-control" value="<?=htmlspecialchars($student['result'])?>">
+        <input type="text" name="phone" class="form-control" value="<?=htmlspecialchars($teacher['phone'])?>" required>
       </div>
 
       <div class="col-md-6">
-        <label class="form-label">Student Image</label>
-        <input type="file" name="image" class="form-control">
-        <?php if(!empty($student['image'])): ?>
-          <a href="../uploads<?=$student['image']?>" target="_blank">Current Image</a>
-        <?php endif; ?>
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" value="<?=htmlspecialchars($teacher['email'])?>" required>
       </div>
+
       <div class="col-md-6">
-        <label class="form-label">Reg Paper Image</label>
-        <input type="file" name="reg_paper_image" class="form-control">
-        <?php if(!empty($student['reg_paper_image'])): ?>
-          <a href="../uploads<?=$student['reg_paper_image']?>" target="_blank">Current Reg Paper</a>
-        <?php endif; ?>
+        <label class="form-label">Password</label>
+        <input type="text" name="password" class="form-control" value="<?=htmlspecialchars($teacher['password'])?>" required>
       </div>
+
     </div>
+
     <div class="mt-3">
       <button type="submit" class="btn btn-success">Update</button>
-      <a href="students_view.php" class="btn btn-secondary">Back</a>
+      <a href="view-teacher.php" class="btn btn-secondary">Back</a>
     </div>
   </form>
 </div>

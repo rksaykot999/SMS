@@ -57,7 +57,7 @@ $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <th>Session</th>
                     <th>Shift</th>
                     <th>Phone</th>
-                    <th>Actions</th>
+                 
                 </tr>
             </thead>
             <tbody>
@@ -65,9 +65,10 @@ $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <td>
                         <img src="<?php echo !empty($s['image']) 
-                                        ? '../public/uploads/'.$s['image'] 
-                                        : '../assets/images/default-student.png'; ?>" 
-                             width="50" height="50" style="border-radius:50%;">
+                            ? '../uploads/students/'.$s['image'] 
+                            : '../assets/images/default-student.png'; ?>" 
+                            width="50" height="50" style="border-radius:50%;">
+
                     </td>
                     <td><?php echo htmlspecialchars($s['name']); ?></td>
                     <td><?php echo htmlspecialchars($s['roll']); ?></td>
@@ -76,14 +77,7 @@ $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td><?php echo htmlspecialchars($s['session']); ?></td>
                     <td><?php echo htmlspecialchars($s['shift']); ?></td>
                     <td><?php echo htmlspecialchars($s['phone']); ?></td>
-                    <td>
-                        <button class="edit" 
-                                onclick="window.location.href='edit-student.php?id=<?php echo $s['id']; ?>'">
-                                Edit</button>
-                        <button class="delete" 
-                                onclick="if(confirm('Are you sure to delete this student?')) window.location.href='delete-student.php?id=<?php echo $s['id']; ?>'">
-                                Delete</button>
-                    </td>
+              
                 </tr>
                 <?php endforeach; ?>
             </tbody>

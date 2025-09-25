@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!in_array($ext, $allowed_ext)) $errors[] = "ছবির অনুমোদিত ফরম্যাট: jpg, jpeg, png, gif।";
             if (empty($errors)) {
                 $student_image_name = 'stu_' . time() . '_' . bin2hex(random_bytes(4)) . '.' . $ext;
-                $dest = __DIR__ . '/../uploads' . $student_image_name;
+                $dest = __DIR__ . '/../uploads/students/' . $student_image_name;
                 if (!move_uploaded_file($f['tmp_name'], $dest)) $errors[] = "ছবি সার্ভারে সেভ করা যায়নি।";
             }
         }
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!in_array($ext, $allowed_ext)) $errors[] = "Registration paper ফর্ম্যাট: jpg,jpeg,png,pdf।";
             if (empty($errors)) {
                 $reg_paper_name = 'rpaper_' . time() . '_' . bin2hex(random_bytes(4)) . '.' . $ext;
-                $dest = __DIR__ . '/../uploads' . $reg_paper_name;
+                $dest = __DIR__ . '/../uploads/students/' . $reg_paper_name;
                 if (!move_uploaded_file($f['tmp_name'], $dest)) $errors[] = "Registration paper সার্ভারে সেভ করা যায়নি।";
             }
         }

@@ -54,7 +54,7 @@ $stmt = $pdo->query("
 ");
 
 while ($t = $stmt->fetch()) {
-    $img = !empty($t['image']) ? '../public/uploads/' . $t['image'] : '../assets/images/default-teacher.png';
+    $img = !empty($t['image']) ? '../uploads/teachers/' . $t['image'] : '../assets/images/default-teacher.png';
     echo '<div class="teacher-card-full">';
     echo "<img src='$img' alt='Teacher'>";
     echo '<div class="info">';

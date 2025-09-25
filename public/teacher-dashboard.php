@@ -278,10 +278,7 @@ $general_notices = $general_notices_stmt->fetchAll();
                 </div>
                 <p class="text-gray-600 mb-4">Manage student records and information</p>
                 <div class="flex space-x-3">
-                    <button onclick="window.location.href='add-student.php'"
-                        class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition duration-200 flex items-center">
-                        <i class="fas fa-plus mr-2"></i>Add Student
-                    </button>
+               
                     <button onclick="window.location.href='view-student.php'"
                         class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg transition duration-200 flex items-center">
                         <i class="fas fa-list mr-2"></i>View Students
@@ -289,24 +286,53 @@ $general_notices = $general_notices_stmt->fetchAll();
                 </div>
             </div>
 
-            <!-- Teacher Management -->
-            <div class="bg-white rounded-xl shadow-md p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="text-xl font-bold text-gray-800">Teacher Management</h3>
-                    <i class="fas fa-chalkboard-teacher text-2xl text-primary-500"></i>
+             <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-bold text-gray-800">Student Notices</h3>
+                    <div class="flex items-center space-x-3">
+                        <button onclick="window.location.href='add-student-notice.php'"
+                            class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition duration-200 flex items-center">
+                            <i class="fas fa-plus mr-2"></i>Create Notice
+                        </button>
+                    </div>
                 </div>
-                <p class="text-gray-600 mb-4">Manage teacher records and information</p>
-                <div class="flex space-x-3">
-                    <button onclick="window.location.href='add-teacher.php'"
-                        class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition duration-200 flex items-center">
-                        <i class="fas fa-plus mr-2"></i>Add Teacher
-                    </button>
-                    <button onclick="window.location.href='view-teacher.php'"
-                        class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg transition duration-200 flex items-center">
-                        <i class="fas fa-list mr-2"></i>View Teachers
-                    </button>
-                </div>
+
+                <?php if ($student_notices): ?>
+                    <div class="space-y-4">
+                        <?php foreach ($student_notices as $n): ?>
+                            <div class="border rounded-lg p-4 hover:shadow-md transition duration-200">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="font-medium text-gray-800"><?php echo htmlspecialchars($n['title']); ?></h4>
+                                        <p class="text-sm text-gray-600 mt-1"><?php echo htmlspecialchars($n['content']); ?></p>
+                                        <p class="text-xs text-gray-500 mt-2">Student:
+                                            <?php echo htmlspecialchars($n['student_name'] . ' (' . $n['student_roll'] . ')'); ?>
+                                        </p>
+                                    </div>
+                                    <div class="flex space-x-2">
+                                        <button
+                                            onclick="window.location.href='edit-student-notice.php?id=<?php echo $n['id']; ?>'"
+                                            class="text-indigo-600 hover:text-indigo-900 p-1 rounded">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button
+                                            onclick="if(confirm('Are you sure to delete this notice?')) { window.location.href='delete-student-notice.php?id=<?php echo $n['id']; ?>'; }"
+                                            class="text-red-600 hover:text-red-900 p-1 rounded">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php else: ?>
+                    <div class="text-center py-8">
+                        <i class="fas fa-sticky-note text-4xl text-gray-300 mb-4"></i>
+                        <p class="text-gray-500">No student notices yet.</p>
+                    </div>
+                <?php endif; ?>
             </div>
+         
         </div>
 
         <!-- Marks Management Section -->
@@ -455,99 +481,7 @@ $general_notices = $general_notices_stmt->fetchAll();
         </div>
 
         <!-- Notices Section -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-            <!-- Student Notices -->
-            <div class="bg-white rounded-xl shadow-md p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-xl font-bold text-gray-800">Student Notices</h3>
-                    <div class="flex items-center space-x-3">
-                        <button onclick="window.location.href='add-student-notice.php'"
-                            class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition duration-200 flex items-center">
-                            <i class="fas fa-plus mr-2"></i>Create Notice
-                        </button>
-                    </div>
-                </div>
-
-                <?php if ($student_notices): ?>
-                    <div class="space-y-4">
-                        <?php foreach ($student_notices as $n): ?>
-                            <div class="border rounded-lg p-4 hover:shadow-md transition duration-200">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <h4 class="font-medium text-gray-800"><?php echo htmlspecialchars($n['title']); ?></h4>
-                                        <p class="text-sm text-gray-600 mt-1"><?php echo htmlspecialchars($n['content']); ?></p>
-                                        <p class="text-xs text-gray-500 mt-2">Student:
-                                            <?php echo htmlspecialchars($n['student_name'] . ' (' . $n['student_roll'] . ')'); ?>
-                                        </p>
-                                    </div>
-                                    <div class="flex space-x-2">
-                                        <button
-                                            onclick="window.location.href='edit-student-notice.php?id=<?php echo $n['id']; ?>'"
-                                            class="text-indigo-600 hover:text-indigo-900 p-1 rounded">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button
-                                            onclick="if(confirm('Are you sure to delete this notice?')) { window.location.href='delete-student-notice.php?id=<?php echo $n['id']; ?>'; }"
-                                            class="text-red-600 hover:text-red-900 p-1 rounded">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php else: ?>
-                    <div class="text-center py-8">
-                        <i class="fas fa-sticky-note text-4xl text-gray-300 mb-4"></i>
-                        <p class="text-gray-500">No student notices yet.</p>
-                    </div>
-                <?php endif; ?>
-            </div>
-
-            <!-- General Notices -->
-            <div class="bg-white rounded-xl shadow-md p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="text-xl font-bold text-gray-800">General Notices</h3>
-                    <div class="flex items-center space-x-3">
-                        <button onclick="window.location.href='add-notice.php'"
-                            class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg transition duration-200 flex items-center">
-                            <i class="fas fa-plus mr-2"></i>Create Notice
-                        </button>
-                    </div>
-                </div>
-
-                <?php if ($general_notices): ?>
-                    <div class="space-y-4">
-                        <?php foreach ($general_notices as $n): ?>
-                            <div class="border rounded-lg p-4 hover:shadow-md transition duration-200">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <h4 class="font-medium text-gray-800"><?php echo htmlspecialchars($n['title']); ?></h4>
-                                        <p class="text-sm text-gray-600 mt-1"><?php echo htmlspecialchars($n['content']); ?></p>
-                                    </div>
-                                    <div class="flex space-x-2">
-                                        <button onclick="window.location.href='edit-notice.php?id=<?php echo $n['id']; ?>'"
-                                            class="text-indigo-600 hover:text-indigo-900 p-1 rounded">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button
-                                            onclick="if(confirm('Are you sure to delete this notice?')) { window.location.href='delete-notice.php?id=<?php echo $n['id']; ?>'; }"
-                                            class="text-red-600 hover:text-red-900 p-1 rounded">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                <?php else: ?>
-                    <div class="text-center py-8">
-                        <i class="fas fa-bullhorn text-4xl text-gray-300 mb-4"></i>
-                        <p class="text-gray-500">No general notices yet.</p>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
+        
     </main>
 
     <!-- Footer -->

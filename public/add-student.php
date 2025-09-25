@@ -2,24 +2,24 @@
 include_once '../includes/db.php';
 session_start();
 
-// Teacher login check
-if(!isset($_SESSION['teacher_id'])){
-    header("Location: teacher-login.php");
-    exit();
+// Admin login check
+if (!isset($_SESSION['admin_id'])) {
+    header('Location: admin_login.php');
+    exit;
 }
 
 $error = "";
 $success = "";
 
 // Form submit
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Collect form data safely
     $name = trim($_POST['name']);
     $roll = trim($_POST['roll']);
     $registration = trim($_POST['registration']);
     $department = trim($_POST['department']);
     $semester = trim($_POST['semester']);
-    $sessionName = trim($_POST['session']); // "session" reserved word হতে পারে
+    $sessionName = trim($_POST['session']); 
     $shift = trim($_POST['shift']);
     $father_name = trim($_POST['father_name']);
     $mother_name = trim($_POST['mother_name']);
@@ -30,30 +30,49 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $phone = trim($_POST['phone']);
     $result = trim($_POST['result']);
 
-    // Image upload
+    // uploads directory
+    $uploadDir = __DIR__ . '/../uploads/students/';
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+
+    // Student image upload
     $img_name = NULL;
-    if(isset($_FILES['image']) && $_FILES['image']['error'] === 0){
+    if (!empty($_FILES['image']['name']) && $_FILES['image']['error'] === 0) {
         $filename = basename($_FILES['image']['name']);
-        $filename = preg_replace("/[^A-Za-z0-9\.\-_]/", "", $filename); // sanitize filename
-        $img_name = time().'_'.$filename;
-        move_uploaded_file($_FILES['image']['tmp_name'], '../public/uploads/'.$img_name);
+        $filename = preg_replace("/[^A-Za-z0-9\.\-_]/", "", $filename);
+        $img_name = time() . '_' . $filename;
+        move_uploaded_file($_FILES['image']['tmp_name'], $uploadDir . $img_name);
+    }
+
+    // Registration paper upload
+    $reg_paper = NULL;
+    if (!empty($_FILES['reg_paper_image']['name']) && $_FILES['reg_paper_image']['error'] === 0) {
+        $filename = basename($_FILES['reg_paper_image']['name']);
+        $filename = preg_replace("/[^A-Za-z0-9\.\-_]/", "", $filename);
+        $reg_paper = time() . '_' . $filename;
+        move_uploaded_file($_FILES['reg_paper_image']['tmp_name'], $uploadDir . $reg_paper);
     }
 
     // Insert student
     $stmt = $pdo->prepare("
         INSERT INTO students
-        (name, roll, registration, department, semester, session, shift, father_name, mother_name, father_phone, mother_phone, present_address, permanent_address, phone, result, image) 
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        (name, roll, registration, department, semester, session, shift, father_name, mother_name, father_phone, mother_phone, present_address, permanent_address, phone, result, image, reg_paper_image) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
     ");
 
-    if($stmt->execute([$name,$roll,$registration,$department,$semester,$sessionName,$shift,$father_name,$mother_name,$father_phone,$mother_phone,$present_address,$permanent_address,$phone,$result,$img_name])){
+    if ($stmt->execute([
+        $name, $roll, $registration, $department, $semester, $sessionName,
+        $shift, $father_name, $mother_name, $father_phone, $mother_phone,
+        $present_address, $permanent_address, $phone, $result,
+        $img_name, $reg_paper
+    ])) {
         $success = "✅ Student added successfully!";
     } else {
         $error = "❌ Failed to add student!";
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,17 +86,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 <div class="container">
 
     <!-- Back Button -->
-    <a href="teacher-dashboard.php" class="back-btn">
+    <a href="students_view.php" class="back-btn">
         <img src="../assets/images/back.png" alt="Back"> Back
     </a>
 
     <h2>Add Student</h2>
 
-    <?php if($error): ?>
+    <?php if ($error): ?>
         <p class="message error"><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
 
-    <?php if($success): ?>
+    <?php if ($success): ?>
         <p class="message success"><?= htmlspecialchars($success) ?></p>
     <?php endif; ?>
 
@@ -100,6 +119,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         <input type="text" name="phone" placeholder="Phone" required>
         <input type="text" name="result" placeholder="Result" required>
 
+        <label>Registration Paper Image:</label>
+        <input type="file" name="reg_paper_image" accept="image/*" required>
+
+        <label>Student Image:</label>
         <input type="file" name="image" accept="image/*">
 
         <button type="submit">Add Student</button>
