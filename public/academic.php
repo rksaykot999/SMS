@@ -7,32 +7,12 @@
   <title>Department Book List - Complete</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            accent1: '#3498db',
-            accent2: '#2ecc71',
-            cardBg: '#ffffff',
-            pageBg1: '#eef2f3',
-            pageBg2: '#d9e4ec',
-            borderDark: '#222',
-            theoryBg: '#d7eefc',
-            pracBg: '#e9f8f1',
-            creditBg: '#fff08a',
-            grandBg: '#ffd8c2',
-            totBg: '#d9f0e6',
-          }
-        }
-      }
-    }
-  </script>
+
   <style>
     .header-hero {
       background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/Hero.jpg") no-repeat center center;
       background-size: cover;
-      height: 50vh;
+      /* height: 50vh; */
     }
 
     .accordion-button:not(.collapsed) {
@@ -152,9 +132,10 @@
   </style>
 </head>
 
-<body class="bg-gradient-to-r from-pageBg1 to-pageBg2 font-sans text-gray-800 antialiased min-h-screen flex flex-col">
-  <!-- Header -->
+
+<body class="bg-gray-50 font-roboto">
   <?php include_once '../includes/header.php'; ?>
+  <!-- Header -->
   <!-- Hero Section -->
   <header class="header-hero pt-12 text-white">
     <div class="p-4 md:p-12 rounded-3xl h-500px] mx-auto max-w-4xl text-center transform transition-transform">
@@ -206,84 +187,84 @@
     </section>
 
     <!-- Academic Departments Section -->
-<section id="courses" class="bg-blue-50 p-8 md:p-12 rounded-3xl shadow-xl">
-  <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Our Diploma Programs</h2>
-  <div class="animate-stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <section id="courses" class="bg-blue-50 p-8 md:p-12 rounded-3xl shadow-xl">
+      <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Our Diploma Programs</h2>
+      <div class="animate-stagger grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-    <!-- Computer Science -->
-    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-      <i class="fas fa-code text-5xl text-blue-600 mb-4"></i>
-      <h3 class="text-xl font-semibold text-gray-800">Computer Science</h3>
-      <p class="text-gray-600 mt-2 text-sm">
-        Study programming, database management, artificial intelligence, software development, and cutting-edge web technologies to build the digital future.
-      </p>
-    </div>
+        <!-- Computer Science -->
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+          <i class="fas fa-code text-5xl text-blue-600 mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800">Computer Science</h3>
+          <p class="text-gray-600 mt-2 text-sm">
+            Study programming, database management, artificial intelligence, software development, and cutting-edge web technologies to build the digital future.
+          </p>
+        </div>
 
-    <!-- Civil Engineering -->
-    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-      <i class="fas fa-drafting-compass text-5xl text-green-600 mb-4"></i>
-      <h3 class="text-xl font-semibold text-gray-800">Civil Technology</h3>
-      <p class="text-gray-600 mt-2 text-sm">
-        Learn structural design, surveying, bridge construction, urban planning, and sustainable infrastructure development for modern cities.
-      </p>
-    </div>
+        <!-- Civil Engineering -->
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+          <i class="fas fa-drafting-compass text-5xl text-green-600 mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800">Civil Technology</h3>
+          <p class="text-gray-600 mt-2 text-sm">
+            Learn structural design, surveying, bridge construction, urban planning, and sustainable infrastructure development for modern cities.
+          </p>
+        </div>
 
-    <!-- Electrical Technology -->
-    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-      <i class="fas fa-bolt text-5xl text-yellow-500 mb-4"></i>
-      <h3 class="text-xl font-semibold text-gray-800">Electrical Technology</h3>
-      <p class="text-gray-600 mt-2 text-sm">
-        Gain expertise in electrical circuits, power systems, electronics, renewable energy, and smart electrical grids for the future.
-      </p>
-    </div>
+        <!-- Electrical Technology -->
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+          <i class="fas fa-bolt text-5xl text-yellow-500 mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800">Electrical Technology</h3>
+          <p class="text-gray-600 mt-2 text-sm">
+            Gain expertise in electrical circuits, power systems, electronics, renewable energy, and smart electrical grids for the future.
+          </p>
+        </div>
 
-    <!-- Mechanical Technology -->
-    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-      <i class="fas fa-industry text-5xl text-red-600 mb-4"></i>
-      <h3 class="text-xl font-semibold text-gray-800">Mechanical Technology</h3>
-      <p class="text-gray-600 mt-2 text-sm">
-        Explore thermodynamics, robotics, advanced manufacturing, automobile engineering, and machine design to shape modern industries.
-      </p>
-    </div>
+        <!-- Mechanical Technology -->
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+          <i class="fas fa-industry text-5xl text-red-600 mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800">Mechanical Technology</h3>
+          <p class="text-gray-600 mt-2 text-sm">
+            Explore thermodynamics, robotics, advanced manufacturing, automobile engineering, and machine design to shape modern industries.
+          </p>
+        </div>
 
-    <!-- Electronics Engineering -->
-    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-      <i class="fas fa-satellite-dish text-5xl text-indigo-600 mb-4"></i>
-      <h3 class="text-xl font-semibold text-gray-800">Electronics Engineering</h3>
-      <p class="text-gray-600 mt-2 text-sm">
-        Work with microcontrollers, embedded systems, communication devices, and electronic circuit design for modern innovations.
-      </p>
-    </div>
+        <!-- Electronics Engineering -->
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+          <i class="fas fa-satellite-dish text-5xl text-indigo-600 mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800">Electronics Engineering</h3>
+          <p class="text-gray-600 mt-2 text-sm">
+            Work with microcontrollers, embedded systems, communication devices, and electronic circuit design for modern innovations.
+          </p>
+        </div>
 
-    <!-- Power Technology -->
-    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-      <i class="fas fa-charging-station text-5xl text-orange-500 mb-4"></i>
-      <h3 class="text-xl font-semibold text-gray-800">Power Technology</h3>
-      <p class="text-gray-600 mt-2 text-sm">
-        Specialize in power generation, transmission, distribution, high-voltage engineering, and smart energy solutions.
-      </p>
-    </div>
+        <!-- Power Technology -->
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+          <i class="fas fa-charging-station text-5xl text-orange-500 mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800">Power Technology</h3>
+          <p class="text-gray-600 mt-2 text-sm">
+            Specialize in power generation, transmission, distribution, high-voltage engineering, and smart energy solutions.
+          </p>
+        </div>
 
-    <!-- Tourism & Hospitality -->
-    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-      <i class="fas fa-hotel text-5xl text-pink-500 mb-4"></i>
-      <h3 class="text-xl font-semibold text-gray-800">Tourism & Hospitality</h3>
-      <p class="text-gray-600 mt-2 text-sm">
-        Build a career in hotel management, travel operations, event planning, food services, and international hospitality industries.
-      </p>
-    </div>
+        <!-- Tourism & Hospitality -->
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+          <i class="fas fa-hotel text-5xl text-pink-500 mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800">Tourism & Hospitality</h3>
+          <p class="text-gray-600 mt-2 text-sm">
+            Build a career in hotel management, travel operations, event planning, food services, and international hospitality industries.
+          </p>
+        </div>
 
-    <!-- Electromedical Technology -->
-    <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
-      <i class="fas fa-heartbeat text-5xl text-teal-500 mb-4"></i>
-      <h3 class="text-xl font-semibold text-gray-800">Electromedical Technology</h3>
-      <p class="text-gray-600 mt-2 text-sm">
-        Focus on biomedical engineering, diagnostic equipment, hospital machines, and medical technology that saves lives.
-      </p>
-    </div>
+        <!-- Electromedical Technology -->
+        <div class="bg-white p-6 rounded-2xl shadow-md text-center transition transform hover:scale-105 hover:shadow-xl">
+          <i class="fas fa-heartbeat text-5xl text-teal-500 mb-4"></i>
+          <h3 class="text-xl font-semibold text-gray-800">Electromedical Technology</h3>
+          <p class="text-gray-600 mt-2 text-sm">
+            Focus on biomedical engineering, diagnostic equipment, hospital machines, and medical technology that saves lives.
+          </p>
+        </div>
 
-  </div>
-</section>
+      </div>
+    </section>
 
 
     <!-- Student Life & Academics -->
@@ -2792,7 +2773,6 @@
           </div>
         </div>
       </div> <!-- end departmentAccordion -->
-
     </div>
   </section>
 
@@ -2800,12 +2780,12 @@
 
   <!-- JavaScript for accordion functionality -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       // Get all accordion buttons
       const accordionButtons = document.querySelectorAll('.accordion-button');
 
       accordionButtons.forEach(button => {
-        button.addEventListener('click', function () {
+        button.addEventListener('click', function() {
           // Toggle the active class for styling
           this.classList.toggle('active');
 

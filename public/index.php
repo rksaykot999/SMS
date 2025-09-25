@@ -211,7 +211,6 @@
 
 <body class="text-gray-800">
 
-    <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-white shadow-lg py-[10px] px-4 md:px-8 flex justify-between items-center">
 
         <!-- Logo -->
@@ -221,13 +220,13 @@
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-6">
-            <a href="index.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Home</a>
-            <a href="about.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">About</a>
-            <a href="academic.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Academic</a>
-            <a href="department.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Departments</a>
-            <a href="teachers.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Teachers</a>
-            <a href="students.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Students</a>
-            <a href="notice.php" class="text-gray-600 font-semibold hover:text-blue-600 transition">Notice</a>
+            <a href="index.php" class="text-gray-600 font-bold hover:text-blue-600 transition">Home</a>
+            <a href="about.php" class="text-gray-600 font-bold hover:text-blue-600 transition">About</a>
+            <a href="academic.php" class="text-gray-600 font-bold hover:text-blue-600 transition">Academic</a>
+            <a href="department.php" class="text-gray-600 font-bold hover:text-blue-600 transition">Departments</a>
+            <a href="teachers.php" class="text-gray-600 font-bold hover:text-blue-600 transition">Teachers</a>
+            <a href="students.php" class="text-gray-600 font-bold hover:text-blue-600 transition">Students</a>
+            <a href="notice.php" class="text-gray-600 font-bold hover:text-blue-600 transition">Notice</a>
         </div>
 
         <!-- Right Section -->
@@ -250,15 +249,16 @@
             <div id="loginDropdown"
                 class="dropdown-menu absolute top-full right-0 mt-3 w-48 bg-white rounded-lg shadow-xl py-2 z-50">
                 <a href="student-login.php"
-                    class="block px-4 py-2 text-gray-600 font-semibold hover:bg-gray-100 text-center">Student Login</a>
+                    class="block px-4 py-2 text-gray-600 font-bold hover:bg-gray-100 text-center">Student Login</a>
                 <a href="teacher-login.php"
-                    class="block px-4 py-2 text-gray-600 font-semibold hover:bg-gray-100 text-center">Teacher Login</a>
+                    class="block px-4 py-2 text-gray-600 font-bold hover:bg-gray-100 text-center">Teacher Login</a>
                 <a href="admin_login.php"
-                    class="block px-4 py-2 text-gray-600 font-semibold hover:bg-gray-100 text-center">Admin Login</a>
+                    class="block px-4 py-2 text-gray-600 font-bold hover:bg-gray-100 text-center">Admin Login</a>
             </div>
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu-container fixed top-16 left-0 w-full bg-white shadow-lg p-6 z-40 md:hidden">
         <a href="index.php" class="block py-2 text-gray-600 hover:text-blue-600">Home</a>
         <a href="academic.php" class="block py-2 text-blue-600 font-semibold">Academics</a>

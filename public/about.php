@@ -18,7 +18,7 @@
         .header-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/Hero.jpg") no-repeat center center;
             background-size: cover;
-            height: 50vh;
+            /* height: 50vh; */
         }
 
         .dropdown-menu {

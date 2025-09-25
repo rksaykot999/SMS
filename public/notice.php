@@ -26,7 +26,7 @@ $notices = $pdo->query("SELECT * FROM notices ORDER BY created_at DESC")->fetchA
         .header-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("Images/Hero.jpg") no-repeat center center;
             background-size: cover;
-            height: 50vh;
+            /* height: 50vh; */
         }
 
         .dropdown-menu {
@@ -70,34 +70,48 @@ $notices = $pdo->query("SELECT * FROM notices ORDER BY created_at DESC")->fetchA
 
     <!-- Main Content Sections -->
 
-    <div class="main-content px-6 py-10 bg-gray-100 min-h-screen">
-    <div class="notice-container max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-        <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6 border-b pb-3">
-            📢 All Notices
-        </h2>
-        
-        <?php if($notices){ ?>
-            <ul class="space-y-4 max-h-96 overflow-y-auto pr-2">
-                <?php foreach($notices as $n){ ?>
-                    <li class="bg-gray-50 border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition">
-                        <strong class="text-lg font-semibold text-gray-800 block mb-2">
-                            <?= htmlspecialchars($n['title']); ?>
-                        </strong>
-                        <p class="text-gray-600 text-sm leading-relaxed">
-                            <?= htmlspecialchars($n['content']); ?>
-                        </p>
-                    </li>
-                <?php } ?>
-            </ul>
-        <?php } else { ?>
-            <p class="text-center text-gray-500 italic">No notices yet.</p>
-        <?php } ?>
-    </div>
-</div>
 
     <main class="container mx-auto p-6 md:p-12 space-y-16">
+        <section>
+            <div class="main-content px-6 py-10 bg-gray-100">
+                <div class="notice-container max-w-8xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+                    <h2 class="text-3xl font-bold text-center text-indigo-600 mb-6 border-b pb-3">
+                        📢 Latest Notices
+                    </h2>
+
+                    <?php if ($notices) { ?>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <?php foreach ($notices as $n) { ?>
+                                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer">
+                                    <div class="flex items-center mb-4">
+                                        <!-- Note: I'm using a static icon, but you could add a column to your notices table to dynamically select the icon class. -->
+                                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mr-4">
+                                            <i class="fas fa-bullhorn text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-lg font-bold text-gray-800"><?= htmlspecialchars($n['title']); ?></h3>
+                                            <!-- Assuming your notices table has a 'created_at' column to display the date -->
+                                            <p class="text-sm text-gray-500">Published: <?= date('F j, Y', strtotime($n['created_at'])); ?></p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-600 text-sm mb-4">
+                                        <?= htmlspecialchars($n['content']); ?>
+                                    </p>
+                                    <a href="#" class="inline-block text-blue-600 hover:underline font-semibold transition duration-300">
+                                        Read More <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                                    </a>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    <?php } else { ?>
+                        <p class="text-center text-gray-500 italic">No notices yet.</p>
+                    <?php } ?>
+                </div>
+            </div>
+        </section>
+
         <section class="bg-white p-8 md:p-12 rounded-3xl shadow-xl">
-        <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">Latest Notices</h2>
+            <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">All Notices</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Notice Card 1 -->
@@ -384,7 +398,7 @@ $notices = $pdo->query("SELECT * FROM notices ORDER BY created_at DESC")->fetchA
             loginDropdown.classList.toggle('show');
             event.stopPropagation();
         });
-        
+
         // Hide the dropdown when clicking outside of it
         window.addEventListener('click', (event) => {
             if (!loginDropdown.contains(event.target) && !loginButton.contains(event.target)) {
