@@ -212,8 +212,7 @@
 <body class="text-gray-800">
 
     <nav class="sticky top-0 z-50 bg-white shadow-lg py-[10px] px-4 md:px-8 flex justify-between items-center">
-
-        <!-- Logo -->
+        
         <a href="index.php" class="flex items-center space-x-2 cursor-pointer">
             <img src="Images/Logo.png" alt="BPI Logo" class="h-12 w-12">
         </a>
